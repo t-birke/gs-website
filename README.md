@@ -1,10 +1,6 @@
-# Hellowin Frontend Play
+# Gentleman Studio Website
 
 ## Getting ready
-
-install phantom-js: http://phantomjs.org/download.html
-
-	brew install phantomjs
 
 install nodeJs (http://nodejs.org/download/) or use package manager
 
@@ -33,7 +29,3 @@ to get required css frameworks make sure they are included in PATH
 ## Start Server
 
  	grunt server
-
-### e2e Testing
-
- 	grunt test:e2e
