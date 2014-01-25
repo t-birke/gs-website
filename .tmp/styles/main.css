@@ -1,0 +1,146 @@
+/* line 5, ../../app/styles/main.sass */
+body {
+  min-width: 1000px;
+  margin: 0;
+  padding-top: 55px;
+  font: 14px/24px "Lato", "Open Sans", "Helvetica Neue", sans-serif;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 13, ../../app/styles/main.sass */
+a,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 19, ../../app/styles/main.sass */
+input,
+input:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* line 24, ../../app/styles/main.sass */
+[data-icon]:before {
+  font-family: "IconFont";
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+/* line 33, ../../app/styles/main.sass */
+.pull-left {
+  float: left;
+}
+
+/* line 36, ../../app/styles/main.sass */
+.pull-right {
+  float: right;
+}
+
+/* line 39, ../../app/styles/main.sass */
+.ico {
+  font-family: IconFont;
+  font-style: normal;
+}
+
+/* line 43, ../../app/styles/main.sass */
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+/* line 48, ../../app/styles/main.sass */
+.center {
+  text-align: center;
+}
+
+/* line 53, ../../app/styles/main.sass */
+.wrapper {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 56, ../../app/styles/main.sass */
+.container {
+  max-width: 1050px;
+}
+/* line 58, ../../app/styles/main.sass */
+.container:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* line 63, ../../app/styles/main.sass */
+.topbar {
+  display: none;
+}
+
+/* line 66, ../../app/styles/main.sass */
+.view {
+  display: none;
+}
+
+/* line 69, ../../app/styles/main.sass */
+.overlay {
+  display: none;
+  position: absolute;
+  z-index: 1600;
+}
+
+/* line 75, ../../app/styles/main.sass */
+.ready .topbar {
+  display: block;
+}
+/* line 77, ../../app/styles/main.sass */
+.ready .view {
+  display: block;
+}
+/* line 79, ../../app/styles/main.sass */
+.ready .overlay {
+  display: block;
+}
+
+/* line 82, ../../app/styles/main.sass */
+.content-main {
+  overflow: hidden;
+  position: relative;
+  min-height: 600px;
+  margin-right: 390px;
+}
+/* line 88, ../../app/styles/main.sass */
+.content-main .singleheading {
+  margin-top: 2.5em;
+}
+/* line 91, ../../app/styles/main.sass */
+.content-main .container {
+  padding: 7% 12%;
+}
+
+/* line 94, ../../app/styles/main.sass */
+.list-group {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+/* line 99, ../../app/styles/main.sass */
+.list-group .list-group-item {
+  position: relative;
+  display: block;
+}
+/* line 103, ../../app/styles/main.sass */
+.list-group .list-group-item span {
+  display: inline-block;
+  line-height: inherit;
+  vertical-align: middle;
+}

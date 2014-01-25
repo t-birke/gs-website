@@ -1,0 +1,12 @@
+{
+  "name": "gs-website",
+  "version": "0.1.0",
+  "dependencies": {
+    "jquery": "",
+    "jquery-form": ""
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.5",
+    "angular-scenario": "~1.0.5"
+  }
+}
