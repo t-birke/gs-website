@@ -1,4 +1,4 @@
-/* line 17, ../../app/styles/main.sass */
+/* line 20, ../../app/styles/main.sass */
 .page {
   *zoom: 1;
   max-width: 940px;
@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 480px) {
-  /* line 23, ../../app/styles/main.sass */
+  /* line 26, ../../app/styles/main.sass */
   .page {
     max-width: 940px;
     padding-left: 10px;
@@ -32,7 +32,7 @@
     clear: both;
   }
 }
-/* line 26, ../../app/styles/main.sass */
+/* line 29, ../../app/styles/main.sass */
 .left-box {
   background-color: #880044;
   width: 48.93617%;
@@ -41,17 +41,46 @@
   display: inline;
 }
 
-/* line 30, ../../app/styles/main.sass */
+@font-face {
+  font-family: "Novecentosanswide";
+  src: url('fonts/Novecentosanswide-Bold-webfont.eot');
+  src: url('fonts/Novecentosanswide-Bold-webfont.eot?#iefix') format('eot'), url('fonts/Novecentosanswide-Bold-webfont.woff') format('woff'), url('fonts/Novecentosanswide-Bold-webfont.ttf') format('truetype'), url('fonts/Novecentosanswide-Bold-webfont.svg') format('svg');
+  font-weight: 800;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "Novecentosanswide";
+  src: url('fonts/Novecentosanswide-DemiBold-webfont.eot');
+  src: url('fonts/Novecentosanswide-DemiBold-webfont.eot?#iefix') format('eot'), url('fonts/Novecentosanswide-DemiBold-webfont.woff') format('woff'), url('fonts/Novecentosanswide-DemiBold-webfont.ttf') format('truetype'), url('fonts/Novecentosanswide-DemiBold-webfont.svg') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Novecentosanswide";
+  src: url('fonts/Novecentosanswide-Medium-webfont.eot');
+  src: url('fonts/Novecentosanswide-Medium-webfont.eot?#iefix') format('eot'), url('fonts/Novecentosanswide-Medium-webfont.woff') format('woff'), url('fonts/Novecentosanswide-Medium-webfont.ttf') format('truetype'), url('fonts/Novecentosanswide-Medium-webfont.svg') format('svg');
+  font-weight: 400;
+  font-style: thin;
+}
+
+/* line 39, ../../app/styles/main.sass */
+html {
+  height: 100%;
+}
+
+/* line 42, ../../app/styles/main.sass */
 body {
-  min-width: 1000px;
+  min-width: 960px;
+  height: 100%;
   margin: 0;
-  padding-top: 55px;
-  font: 14px/24px "Lato", "Open Sans", "Helvetica Neue", sans-serif;
+  font: 16px/24px "Open Sans", "Helvetica Neue", sans-serif;
   background: white;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 38, ../../app/styles/main.sass */
+/* line 50, ../../app/styles/main.sass */
 a,
 a:active,
 a:focus {
@@ -59,7 +88,7 @@ a:focus {
   text-decoration: none;
 }
 
-/* line 44, ../../app/styles/main.sass */
+/* line 56, ../../app/styles/main.sass */
 input,
 input:focus {
   -webkit-box-shadow: none;
@@ -68,7 +97,7 @@ input:focus {
   outline: none;
 }
 
-/* line 49, ../../app/styles/main.sass */
+/* line 61, ../../app/styles/main.sass */
 [data-icon]:before {
   font-family: "IconFont";
   content: attr(data-icon);
@@ -79,30 +108,188 @@ input:focus {
   line-height: 1;
 }
 
-/* line 58, ../../app/styles/main.sass */
+/* line 70, ../../app/styles/main.sass */
 .pull-left {
   float: left;
 }
 
-/* line 61, ../../app/styles/main.sass */
+/* line 73, ../../app/styles/main.sass */
 .pull-right {
   float: right;
 }
 
-/* line 64, ../../app/styles/main.sass */
+/* line 76, ../../app/styles/main.sass */
 .ico {
   font-family: IconFont;
   font-style: normal;
 }
 
-/* line 68, ../../app/styles/main.sass */
+/* line 80, ../../app/styles/main.sass */
 h1,
 h2,
 h3 {
   text-align: center;
 }
 
-/* line 73, ../../app/styles/main.sass */
+/* line 85, ../../app/styles/main.sass */
+h1 {
+  font-family: "Novecentosanswide";
+  font-weight: 800;
+}
+
+/* line 89, ../../app/styles/main.sass */
+h2 {
+  font-family: "Novecentosanswide";
+  font-weight: 600;
+}
+
+/* line 93, ../../app/styles/main.sass */
+h3 {
+  font-family: "Novecentosanswide";
+  font-weight: 400;
+}
+
+/* line 97, ../../app/styles/main.sass */
 .center {
   text-align: center;
+}
+
+/* line 100, ../../app/styles/main.sass */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: white;
+  line-height: 60px;
+}
+/* line 109, ../../app/styles/main.sass */
+header .menu {
+  width: 960px;
+  text-align: center;
+  margin: auto;
+}
+/* line 114, ../../app/styles/main.sass */
+header a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin: 0 1em;
+  padding: 1em;
+  font-family: "Novecentosanswide";
+  font-weight: 400;
+  font-size: 0.7em;
+  border: 1px solid transparent;
+  text-transform: lowercase;
+}
+/* line 124, ../../app/styles/main.sass */
+header a:hover {
+  border-color: #ffcc00;
+}
+/* line 127, ../../app/styles/main.sass */
+header a:active {
+  -webkit-transition: 2s ease-out;
+  -moz-transition: 2s ease-out;
+  -o-transition: 2s ease-out;
+  transition: 2s ease-out;
+  background-color: #ffcc00;
+}
+/* line 131, ../../app/styles/main.sass */
+header a:visited,
+header a:link,
+header a:hover,
+header a:active {
+  color: #3b3b3b;
+}
+/* line 138, ../../app/styles/main.sass */
+header .push {
+  margin-right: 11em;
+}
+
+/* line 142, ../../app/styles/main.sass */
+.logo-section {
+  margin-top: 60px;
+  height: 100%;
+  background: url("../images/bg_head.jpg") no-repeat bottom center;
+  background-size: cover;
+}
+/* line 148, ../../app/styles/main.sass */
+.logo-section .logo-container {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  min-width: 960px;
+}
+/* line 155, ../../app/styles/main.sass */
+.logo-section .logo-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 100%;
+  background: url("../images/guy_left.png") no-repeat bottom center;
+  background-size: contain;
+  z-index: 3;
+}
+/* line 165, ../../app/styles/main.sass */
+.logo-section .logo-right {
+  position: absolute;
+  top: 0;
+  left: 66%;
+  width: 33%;
+  height: 100%;
+  background: url("../images/guy_right.png") no-repeat bottom center;
+  background-size: contain;
+  z-index: 2;
+}
+/* line 175, ../../app/styles/main.sass */
+.logo-section .logo-center {
+  position: absolute;
+  top: 0;
+  left: 33%;
+  width: 33%;
+  height: 100%;
+}
+/* line 182, ../../app/styles/main.sass */
+.logo-section .logo-hat {
+  width: 100%;
+  height: 30%;
+  background: url("../images/logo_1.png") no-repeat bottom center;
+}
+/* line 187, ../../app/styles/main.sass */
+.logo-section .logo-logo {
+  background: url("../images/logo_2.png") no-repeat bottom center;
+  background-size: contain;
+  width: 100%;
+  height: 30%;
+}
+/* line 193, ../../app/styles/main.sass */
+.logo-section .logo-bottom {
+  background: url("../images/banderole.png") no-repeat top center;
+  background-size: contain;
+  width: 100%;
+  margin-left: -50%;
+  margin-top: 10%;
+  height: 40%;
+  text-align: center;
+  padding: 10% 50% 0 50%;
+}
+/* line 203, ../../app/styles/main.sass */
+.logo-section .banner {
+  font-family: "Novecentosanswide";
+  font-weight: 400;
+  font-size: 1em;
+  text-transform: lowercase;
+  color: #3b3b3b;
+}
+
+/* line 210, ../../app/styles/main.sass */
+.about-menu {
+  height: 15em;
+  width: 100%;
+  background-color: #3b3b3b;
 }

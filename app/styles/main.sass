@@ -4,6 +4,9 @@
 // Variables
 $main-color: #ff00aa
 $shadow-color: #880044
+$text-color: #3b3b3b
+$gs-yellow: #ffcc00
+$bg-grey: #3b3b3b
 
 
 // susy setup
@@ -27,11 +30,20 @@ $container-style: magic
   background-color: $shadow-color
   @include span-columns(6)
 
+//Font definition for heading fonts
+
++font-face("Novecentosanswide", font-files("Novecentosanswide-Bold-webfont.woff", woff, "Novecentosanswide-Bold-webfont.ttf", truetype, "Novecentosanswide-Bold-webfont.svg", svg), "Novecentosanswide-Bold-webfont.eot", $weight: 800, $style: bold)
++font-face("Novecentosanswide", font-files("Novecentosanswide-DemiBold-webfont.woff", woff, "Novecentosanswide-DemiBold-webfont.ttf", truetype, "Novecentosanswide-DemiBold-webfont.svg", svg), "Novecentosanswide-DemiBold-webfont.eot", $weight: 600, $style: normal)
++font-face("Novecentosanswide", font-files("Novecentosanswide-Medium-webfont.woff", woff, "Novecentosanswide-Medium-webfont.ttf", truetype, "Novecentosanswide-Medium-webfont.svg", svg), "Novecentosanswide-Medium-webfont.eot", $weight: 400, $style: thin)
+
+html
+  height: 100%
+
 body
-  min-width: 1000px
+  min-width: 960px
+  height: 100%
   margin: 0
-  padding-top: 55px
-  font: 14px/24px "Lato", "Open Sans", "Helvetica Neue", sans-serif
+  font: 16px/24px "Open Sans", "Helvetica Neue", sans-serif
   background: white
   -webkit-font-smoothing: antialiased
 
@@ -70,5 +82,132 @@ h2,
 h3
   text-align: center
 
+h1
+  font-family: 'Novecentosanswide'
+  font-weight: 800
+
+h2
+  font-family: 'Novecentosanswide'
+  font-weight: 600
+  
+h3
+  font-family: 'Novecentosanswide'
+  font-weight: 400
+
 .center
   text-align: center
+
+header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: 60px
+  background-color: white
+  line-height: 60px
+
+  .menu
+    width: 960px
+    text-align: center
+    margin: auto
+
+  a
+    +border-radius(5px)
+    margin: 0 1em
+    padding: 1em
+    font-family: 'Novecentosanswide'
+    font-weight: 400
+    font-size: .7em
+    border: 1px solid transparent
+    text-transform: lowercase
+
+    &:hover
+      border-color: $gs-yellow
+
+    &:active
+      +transition(2s ease-out)
+      background-color: $gs-yellow
+
+  a:visited, 
+  a:link, 
+  a:hover, 
+  a:active
+    color: $text-color
+
+
+  .push
+    margin-right: 11em
+
+//logo section
+.logo-section
+  margin-top: 60px
+  height: 100%
+  background: url('../images/bg_head.jpg') no-repeat bottom center
+  background-size: cover
+
+  .logo-container
+    position: relative
+    width: 60%
+    height: 100%
+    margin: auto
+    min-width: 960px
+
+  .logo-left
+    position: absolute
+    top: 0
+    left: 0
+    width: 33%
+    height: 100%
+    background: url('../images/guy_left.png') no-repeat bottom center
+    background-size: contain
+    z-index: 3
+
+  .logo-right
+    position: absolute
+    top: 0
+    left: 66%
+    width: 33%
+    height: 100%
+    background: url('../images/guy_right.png') no-repeat bottom center
+    background-size: contain
+    z-index: 2
+
+  .logo-center
+    position: absolute
+    top: 0
+    left: 33%
+    width: 33%
+    height: 100%
+    
+  .logo-hat
+    width: 100%
+    height: 30%
+    background: url('../images/logo_1.png') no-repeat bottom center
+
+  .logo-logo
+    background: url('../images/logo_2.png') no-repeat bottom center
+    background-size: contain
+    width: 100%
+    height: 30%
+
+  .logo-bottom
+    background: url('../images/banderole.png') no-repeat top center
+    background-size: contain
+    width: 100%
+    margin-left: -50%
+    margin-top: 10%
+    height: 40%
+    text-align: center
+    padding: 10% 50% 0 50%
+
+  .banner
+    font-family: 'Novecentosanswide'
+    font-weight: 400
+    font-size: 1em
+    text-transform: lowercase
+    color: $text-color
+
+.about-menu
+  height: 15em
+  width: 100%
+  background-color: $bg-grey
