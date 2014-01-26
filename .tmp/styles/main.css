@@ -9,7 +9,7 @@
   margin-right: auto;
   background-color: #ff00aa;
 }
-/* line 38, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .page:after {
   content: "";
   display: table;
@@ -25,7 +25,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 38, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .page:after {
     content: "";
     display: table;
@@ -89,20 +89,20 @@ input:focus {
   float: right;
 }
 
-/* line 64, ../../app/styles/main.sass */
+/* line 65, ../../app/styles/main.sass */
 .ico {
   font-family: IconFont;
   font-style: normal;
 }
 
-/* line 68, ../../app/styles/main.sass */
+/* line 69, ../../app/styles/main.sass */
 h1,
 h2,
 h3 {
   text-align: center;
 }
 
-/* line 73, ../../app/styles/main.sass */
+/* line 74, ../../app/styles/main.sass */
 .center {
   text-align: center;
 }
