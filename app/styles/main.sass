@@ -1,6 +1,31 @@
 @import compass
+@import susy
 
 // Variables
+$main-color: #ff00aa
+$shadow-color: #880044
+
+
+// susy setup
+$total-columns  : 12             // a 12-column grid
+$column-width   : 60px            // each column is 4em wide
+$gutter-width   : 20px           // 1em gutters between columns
+$grid-padding   : 10px  // grid-padding equal to gutters
+$container-style: magic
+
+
+.page
+  // Establish our default 4-column grid container.
+  @include container
+  background-color: $main-color
+
+@include at-breakpoint(480px 12)
+  .page
+    @include container
+
+.left-box
+  background-color: $shadow-color
+  @include span-columns(6)
 
 body
   min-width: 1000px
@@ -47,60 +72,3 @@ h3
 
 .center
   text-align: center
-
-// Structure
-
-.wrapper
-  +clearfix
-
-.container
-  max-width: 1050px
-  &:after
-    content: ""
-    clear: both
-    display: table
-
-.topbar
-  display: none
-
-.view
-  display: none
-
-.overlay
-  display: none
-  position: absolute
-  z-index: 1600
-
-.ready
-  .topbar
-    display: block
-  .view
-    display: block
-  .overlay
-    display: block
-
-.content-main
-  overflow: hidden
-  position: relative
-  min-height: 600px
-  margin-right: 390px
-
-  .singleheading
-    margin-top: 2.5em
-
-  .container
-    padding: 7% 12%
-
-.list-group
-  margin: 0 0 20px
-  padding: 0
-  list-style: none
-
-  .list-group-item
-    position: relative
-    display: block
-
-    span
-      display: inline-block
-      line-height: inherit
-      vertical-align: middle
