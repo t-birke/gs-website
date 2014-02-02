@@ -15,7 +15,8 @@
   <!-- endbuild -->
 </head>
 <body>
-
+<div id="popup-background" class="hidden">
+</div>
 <header>
   <div class="menu">
     <a href="#">Service</a>
@@ -25,28 +26,333 @@
     <a href="#">Anfrage</a>
     <a href="#">Kontakt</a>
   </div>
+  <div class="logo-hat" data-type="hat" data-speed="2"></div>
 </header>
 
 <section class="logo-section">
-  <div class="logo-container">
+  <div class="logo-container" data-type="logo" data-speed="2">
     <div class="logo-left"></div>
     <div class="logo-center">
-      <div class="logo-hat"></div>
       <div class="logo-logo"></div>
       <div class="logo-bottom">
-        <span class="banner">ein kreatives Werbe &amp; Design Studio aus Berlin.
-        </span>
       </div>
     </div>
     <div class="logo-right"></div>
   </div>
 </section>
-<section class="about-menu">
+<section class="service-menu" data-type="background" data-speed="2">
+  <div class="service-menu-container">
+    <a class="branding active" data-target="konzeption">
+      <i class="ico">&#xe606;</i><br>
+      Konzeption</a>
+    <a class="ui" data-target="ui">
+      <i class="ico">&#xe608;</i><br>
+      Design</a>
+    <a class="print" data-target="print">
+      <i class="ico">&#xe607;</i><br>
+      Entwicklung</a>
+    <div class="arrow"></div>
+  </div>
+</section>
+<section class="service-section">
+  <div class="section-white-bg"></div>
+  <div class="service-container" data-content="konzeption">
+    <div class="info-box">
+      <img src="../images/branding_standard.jpg" />
+      <h2>Branding/CI Konzept</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/ui_standard.jpg" />
+      <h2>UI Konzeption</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/print_standard.jpg" />
+      <h2>Social &amp; Print Konzepte</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+  </div>
+  <div class="service-container hidden" data-content="ui">
+    <div class="info-box">
+      <img src="../images/branding_design.jpg" />
+      <h2>Branding/CI Konzept</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/ui_design.jpg" />
+      <h2>UI Konzeption</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/print_design.jpg" />
+      <h2>Social &amp; Print Konzepte</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+  </div>
+  <div class="service-container hidden" data-content="print">
+    <div class="info-box">
+      <img src="../images/website_entwicklung.jpg" />
+      <h2>Branding/CI Konzept</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/app_entwicklung.jpg" />
+      <h2>UI Konzeption</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="info-box">
+      <img src="../images/wordpress_entwicklung.jpg" />
+      <h2>Social &amp; Print Konzepte</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+  </div>
+</section>
+<section class="stil-section" data-type="background" data-speed="2">
+  <div class="section-white-bg"></div>
+  <div class="content">
+    <h3>Unser Stil</h3>
+    <h1>Ein bewährter Prozess</h1>
+    <p class="subheading">Um eine Idee in ein starkes Produkt und eine starke Marke zu verwandeln, braucht es Strategie.</p>
+    <div class="info-box first">
+      <div class="number">1</div>
+      <div class="image-container">
+        <img src="../images/chess.jpg" />
+      </div>
+      <div class="text-container">
+        <h2>Design Strategie</h2>
+        <p class="subheading2">Meet &amp; Greet sowie erste Ideensammlung</p>
+        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="number">2</div>
+      <div class="image-container">
+        <img src="../images/train.jpg" />
+      </div>
+      <div class="text-container">
+        <h2>Passion für Details</h2>
+        <p class="subheading2">Wir machen uns ans Werk und nehmen Sie mit</p>
+        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="number">3</div>
+      <div class="image-container">
+        <img src="../images/speaker.jpg" />
+      </div>
+      <div class="text-container">
+        <h2>Effektive Resultate</h2>
+        <p class="subheading2">Endpräsentation sowie letzte Änderungen</p>
+        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section class="reference-section" data-type="background" data-speed="2">
+  <div class="section-white-bg"></div>
+  <h3>Referenzen</h3>
+  <h1>Eine feine Auswahl</h1>
+  <p class="subheading">Dies sind Auszüge von Werken, denen wir Leben einhauchen durften.</p>
+
+  <div class="menu">
+    <form>
+      <div class="selectbox">
+        <select class="selectbox-none" name="category">
+          <option>Kategorie wählen</option>
+          <option>Branding</option>
+          <option>Corporate</option>
+          <option>Web</option>
+          <option>Mobile</option>
+          <option>Social Media</option>
+          <option>Print</option>
+          <option>Development</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  </div>
+  <div class="reference-content">
+    <a data-popup="gs" data-color="rgba(0,222,0,0.85)"><img src="../images/1.jpg" class="reference-image" /></a>
+    <a href="#"><img src="../images/2.jpg" class="reference-image" /></a><br>
+    <a href="#"><img src="../images/3.jpg" class="reference-image" /></a>
+    <a href="#"><img src="../images/5.jpg" class="reference-image" /></a>
+  </div>
+</section>
+
+<section class="studio-section" data-type="background" data-speed="2">
+  <div class="section-white-bg"></div>
+  <h3>Das Studio</h3>
+    <h1>Die Leidenschaft dazu</h1>
+    <p class="subheading">Lernen Sie uns ein wenig kennen und erfahren Sie, warum Sie mit uns zusammen arbeiten sollten.</p>
+
+  <div class="menu">
+    <div class="quote">
+      <div class="quote-links">
+        <a data-link="prev">&lt;</a><a class="active" data-link="next">&gt;</a>
+      </div>
+      <div class="quote-text-box" data-quote="1">
+        <p class="quote-text">Ich kann diese Agentur wirklich nur weiterempfehlen! Alles funktionierte Prima, schnell, sauber und ohne Probleme. Man spürt die Passion zum Design in den Arbeiten! Top!
+        </p>
+        <h3>Friedemann Weber, LeadsBerlin</h3>
+      </div>
+      <div class="quote-text-box hidden" data-quote="2">
+        <p class="quote-text">Riesenlümmel!
+        </p>
+        <h3>Hans Dampf, Spassvogel</h3>
+      </div>
+      <div class="quote-text-box hidden" data-quote="3">
+        <p class="quote-text">Kackvogel Unlimited.
+        </p>
+        <h3>Rosa Luxemburg, DKP</h3>
+      </div>
+    </div>
+    
+  </div>
+  <div class="features-container">
+    <div class="features-box">
+      <i class="ico">&#xe601;</i>
+      <h3>Wir arbeiten schnell</h3>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+    </div>
+    <div class="features-box">
+      <i class="ico">&#xe602;</i>
+      <h3>Wir haben ein Auge für Details</h3>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+    </div>
+    <br>
+    <div class="features-box">
+      <i class="ico">&#xe603;</i>
+      <h3>Wir sind kostengünstig</h3>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+    </div>
+    <div class="features-box">
+      <i class="ico">&#xe600;</i>
+      <h3>Wir lieben was wir tun</h3>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+    </div>
+  </div>
+  <div class="social-container">
+    <div class="social-box">
+      <i class="ico facebook">&#xe60a;</i>
+      <h2 class="facebook">132 gefällt mir</h2>
+    </div>
+    <div class="social-box">
+      <i class="ico instagram">&#xe60b;</i>
+      <h2 class="instagram">64 follower</h2>
+    </div>
+    <br>
+    <div class="social-box">
+      <i class="ico dribble">&#xe60c;</i>
+      <h2 class="dribble">243 Follower</h2>
+    </div>
+    <div class="social-box">
+      <i class="ico behance">&#xe60f;</i>
+      <h2 class="behance">20 Appreciations</h2>
+    </div>
+  </div>
+
+</section>
+<section class="contact-section" data-type="background" data-speed="2">
+  <div class="section-white-bg"></div>
+  <h3>Anfrage &amp; Kontakt</h3>
+    <h1>Wir kontaktieren Sie gerne</h1>
+    <p class="subheading">Wenn Sie Wert auf Qualität legen &amp; gerne mit uns gemeinsam an Ihrem neuen Projekt arbeiten möchten!</p>
+
+  <div class="menu">
+    <form>
+      <input placeholder="Mail Adresse"></input>
+      <div class="button-wrapper">
+        <button class="button">absenden</button></div>
+    </form>
+    <p>Senden Sie uns Ihre E-Mail Adresse &amp; wir melden uns umgehen bei Ihnen.</p>
+  </div>
+  <div class="contact-content">
+    <div class="contact-images">
+      <div class="portrait">
+        <img src="../images/ansprechpartner.png" alt="The Gentleman Studio CEO und Geschäftsführer Michael Bogner" class="reference-image" />
+      </div>
+      <div class="contact-social">
+        <a href="#" class="facebook"><i class="ico">&#xe60a;</i></a>
+        <a href="#" class="linkedin"><i class="ico">&#xe60d;</i></a>
+        <a href="#" class="pinterest"><i class="ico">&#xe60e;</i></a>
+      </div>
+    </div>
+    <div class="contact-text">
+      <h2>Ihr persönlicher Ansprechpartner</h2>
+      <span class="name">Michael Bogner, CEO</span>
+      <p>
+        Tel. +49 150 99 09 776<br>
+        michael@thegentlemanstudio.com<br><br>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.
+      </p>
+    </div>
+    <div class="contact-rest">
+      Schreiben Sie uns direkt eine E-Mail mit Ihren Vorstellungen &amp; Wünschen!<br>
+      <button class="button">E-Mail schreiben</button>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="refer">
+    <div class="refer-container">
+      <div class="refer-heading">
+        <i class="ico avatar">&#xe609;</i>
+        <h2>Sie sind bereits Kunde?</h2>
+        <p class="refer-call">
+          Empfehlen Sie uns doch weiter!
+        </p>
+      </div>
+      <p class="refer-text">
+        Natürlich würde es uns freuen, wenn Sie uns Ihren Freunden empfehlen würden
+      </p>
+      <div class="refer-social">
+        Teilen auf
+          <a href="#"><i class="ico social facebook">&#xe60a;</i></a>
+          <a href="#"><i class="ico social dribble">&#xe60c;</i></a>
+          <a href="#"><i class="ico social instagram">&#xe60b;</i></a>
+          <a href="#"><i class="ico social behance">&#xe60f;</i></a>
+      </div>
+      <button class="button">per mail empfehlen</button>
+    </div>
+  </div>
+  <div class="login">
+    <h2>Kundenbereich</h2>
+    <p class="login-subheading">Hier direkt anmelden!</p>
+    <p class="description">
+      Hier können sich Bestandskunden kostenlos anmelden, um Richtlinien für den erteilten Auftrag abzugeben, Designwünsche zu äußern oder Konzeptionsvorschläge einzubringen.
+    </p>
+    <form>
+      <input placeholder="Benutzername"></input>
+      <input type="password" placeholder="Passwort"></input><br>
+      <button class="button">Anmelden</button>
+    </form>
+  </div>
+  <div class="maps"><div id="map-canvas"></div></div>
+  <div class="contact">
+    <h2>Kontaktmöglichkeiten</h2>
+    <p class="address">
+      Potsdamer Str. 168<br>
+      10783 Berlin<br>
+      HRB 123456 &#124; Amtsgericht Charlottenburg<br>
+      <br>
+      Tel. +43 150 99 09 776 &#124; <a href="mailto:office@thegentlemanstudio.com">office@thegentlemanstudio.com</a>
+    </p>
+    <div class="contact-links">
+      <a href="#">Impressum</a> &#124;
+      <a href="#">Datenschutz &amp; AGBs</a> &#124;
+      <a href="#">Presse</a> &#124;
+      <a href="#">Jobs</a> &#124;
+      <a href="#">Mobile</a>
+    </div>
+  </div>
+</footer>
 
 <script src="components/jquery/jquery.min.js"></script>
 <script src="scripts/app.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="scripts/script.js"></script>
 
 </body>
 </html>

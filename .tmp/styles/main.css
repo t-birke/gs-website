@@ -65,12 +65,20 @@
   font-style: thin;
 }
 
-/* line 39, ../../app/styles/main.sass */
+@font-face {
+  font-family: "IconFont";
+  src: url('fonts/gs-icon-font.eot');
+  src: url('fonts/gs-icon-font.eot?#iefix') format('eot'), url('fonts/gs-icon-font.woff') format('woff'), url('fonts/gs-icon-font.ttf') format('truetype'), url('fonts/gs-icon-font.svg#gs-icon-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 40, ../../app/styles/main.sass */
 html {
   height: 100%;
 }
 
-/* line 42, ../../app/styles/main.sass */
+/* line 43, ../../app/styles/main.sass */
 body {
   min-width: 960px;
   height: 100%;
@@ -80,15 +88,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 50, ../../app/styles/main.sass */
+/* line 51, ../../app/styles/main.sass */
 a,
-a:active,
-a:focus {
+a:visited,
+a:link,
+a:hover,
+a:active {
+  color: #3b3b3b;
   outline: none;
   text-decoration: none;
 }
 
-/* line 56, ../../app/styles/main.sass */
+/* line 60, ../../app/styles/main.sass */
+.ico {
+  font-family: "IconFont";
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 66, ../../app/styles/main.sass */
 input,
 input:focus {
   -webkit-box-shadow: none;
@@ -97,65 +116,42 @@ input:focus {
   outline: none;
 }
 
-/* line 61, ../../app/styles/main.sass */
-[data-icon]:before {
-  font-family: "IconFont";
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-}
-
-/* line 70, ../../app/styles/main.sass */
-.pull-left {
-  float: left;
-}
-
-/* line 73, ../../app/styles/main.sass */
-.pull-right {
-  float: right;
-}
-
-/* line 76, ../../app/styles/main.sass */
-.ico {
-  font-family: IconFont;
-  font-style: normal;
-}
-
-/* line 80, ../../app/styles/main.sass */
+/* line 72, ../../app/styles/main.sass */
 h1,
 h2,
 h3 {
   text-align: center;
+  text-transform: uppercase;
 }
 
-/* line 85, ../../app/styles/main.sass */
+/* line 78, ../../app/styles/main.sass */
 h1 {
   font-family: "Novecentosanswide";
   font-weight: 800;
 }
 
-/* line 89, ../../app/styles/main.sass */
+/* line 82, ../../app/styles/main.sass */
 h2 {
   font-family: "Novecentosanswide";
   font-weight: 600;
 }
 
-/* line 93, ../../app/styles/main.sass */
+/* line 86, ../../app/styles/main.sass */
 h3 {
   font-family: "Novecentosanswide";
   font-weight: 400;
 }
 
-/* line 97, ../../app/styles/main.sass */
+/* line 90, ../../app/styles/main.sass */
 .center {
   text-align: center;
 }
 
-/* line 100, ../../app/styles/main.sass */
+/* line 93, ../../app/styles/main.sass */
 header {
+  -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -163,14 +159,26 @@ header {
   height: 60px;
   background-color: white;
   line-height: 60px;
+  z-index: 100;
 }
-/* line 109, ../../app/styles/main.sass */
+/* line 104, ../../app/styles/main.sass */
 header .menu {
+  position: relative;
   width: 960px;
   text-align: center;
   margin: auto;
 }
-/* line 114, ../../app/styles/main.sass */
+/* line 110, ../../app/styles/main.sass */
+header .logo-hat {
+  position: absolute;
+  top: 0;
+  left: 47.5%;
+  width: 5%;
+  height: 100%;
+  background: url("../images/logo_1.png") no-repeat center center;
+  background-size: contain;
+}
+/* line 119, ../../app/styles/main.sass */
 header a {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -185,11 +193,11 @@ header a {
   border: 1px solid transparent;
   text-transform: lowercase;
 }
-/* line 124, ../../app/styles/main.sass */
+/* line 129, ../../app/styles/main.sass */
 header a:hover {
   border-color: #ffcc00;
 }
-/* line 127, ../../app/styles/main.sass */
+/* line 132, ../../app/styles/main.sass */
 header a:active {
   -webkit-transition: 2s ease-out;
   -moz-transition: 2s ease-out;
@@ -197,34 +205,314 @@ header a:active {
   transition: 2s ease-out;
   background-color: #ffcc00;
 }
-/* line 131, ../../app/styles/main.sass */
+/* line 136, ../../app/styles/main.sass */
 header a:visited,
 header a:link,
 header a:hover,
 header a:active {
   color: #3b3b3b;
 }
-/* line 138, ../../app/styles/main.sass */
+/* line 143, ../../app/styles/main.sass */
 header .push {
   margin-right: 11em;
 }
 
-/* line 142, ../../app/styles/main.sass */
+/* line 146, ../../app/styles/main.sass */
+h1 {
+  font-size: 2.8em;
+  color: white;
+}
+
+/* line 150, ../../app/styles/main.sass */
+h3 {
+  font-size: 1em;
+  color: white;
+  margin-top: 7em;
+}
+
+/* line 155, ../../app/styles/main.sass */
+.subheading {
+  position: relative;
+  font-size: 0.94em;
+  margin: 4em auto;
+  width: 26em;
+  color: white;
+  text-align: center;
+}
+/* line 163, ../../app/styles/main.sass */
+.subheading:after {
+  content: "";
+  position: absolute;
+  top: -1em;
+  left: 4em;
+  width: 18.75em;
+  height: 1px;
+  background-color: white;
+}
+
+/* line 172, ../../app/styles/main.sass */
+.button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 240px;
+  height: 50px;
+  line-height: normal !important;
+  font-size: 12px;
+  font-family: "Novecentosanswide";
+  font-weight: 600;
+  color: #ffcc00;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid #ffcc00;
+  background-color: transparent;
+}
+/* line 186, ../../app/styles/main.sass */
+.button:hover {
+  cursor: pointer;
+}
+
+/* line 189, ../../app/styles/main.sass */
+.facebook {
+  color: #6279b1;
+}
+
+/* line 192, ../../app/styles/main.sass */
+.instagram {
+  color: #ffdb4c;
+}
+
+/* line 195, ../../app/styles/main.sass */
+.dribble {
+  color: #ff3398;
+}
+
+/* line 198, ../../app/styles/main.sass */
+.behance {
+  color: #33c7f1;
+}
+
+/* line 201, ../../app/styles/main.sass */
+.section-white-bg {
+  position: absolute;
+  top: 450px;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* line 210, ../../app/styles/main.sass */
+.hidden {
+  display: none;
+}
+
+/* line 213, ../../app/styles/main.sass */
+#popup-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(222, 0, 0, 0.85);
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+/* line 223, ../../app/styles/main.sass */
+.popup {
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  margin: 40px auto;
+  width: 90%;
+  max-width: 880px;
+  background-color: white;
+  height: 1400px;
+}
+/* line 231, ../../app/styles/main.sass */
+.popup .popup-header {
+  position: relative;
+  width: 100%;
+  background-color: #1b1b1b;
+  padding: 50px 0;
+}
+@media only screen and (max-width: 800px) {
+  /* line 231, ../../app/styles/main.sass */
+  .popup .popup-header {
+    font-size: 80%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  /* line 231, ../../app/styles/main.sass */
+  .popup .popup-header {
+    font-size: 60%;
+  }
+}
+/* line 241, ../../app/styles/main.sass */
+.popup .popup-header h3 {
+  position: relative;
+  font-size: 1.875em;
+  margin: 0;
+  font-family: "Open Sans";
+  padding: 0 20px;
+}
+/* line 248, ../../app/styles/main.sass */
+.popup .popup-header h3:after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 33%;
+  width: 33%;
+  height: 1px;
+  background-color: white;
+}
+/* line 257, ../../app/styles/main.sass */
+.popup .popup-header p {
+  font-size: 0.75em;
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+/* line 264, ../../app/styles/main.sass */
+.popup .popup-header .popup-links {
+  text-align: center;
+  margin-top: 30px;
+  color: #3e3e3e;
+  padding: 0 20px;
+}
+/* line 270, ../../app/styles/main.sass */
+.popup .popup-header a {
+  font-family: "Novecentosanswide";
+  font-weight: 600;
+  font-size: 0.75em;
+  color: #3e3e3e;
+  text-transform: uppercase;
+}
+/* line 277, ../../app/styles/main.sass */
+.popup .popup-header .close {
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  -ms-transform: scaleY(0.7);
+  -o-transform: scaleY(0.7);
+  transform: scaleY(0.7);
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  color: white;
+}
+/* line 285, ../../app/styles/main.sass */
+.popup .popup-header .close:hover {
+  cursor: pointer;
+}
+
+/* line 288, ../../app/styles/main.sass */
+.service-menu {
+  height: 15em;
+  width: 100%;
+  background-color: #3b3b3b;
+  text-align: center;
+}
+/* line 294, ../../app/styles/main.sass */
+.service-menu .service-menu-container {
+  position: relative;
+  width: 960px;
+  margin: auto;
+}
+/* line 299, ../../app/styles/main.sass */
+.service-menu a:visited,
+.service-menu a:link,
+.service-menu a:hover,
+.service-menu a:active {
+  color: white;
+}
+/* line 305, ../../app/styles/main.sass */
+.service-menu a {
+  display: inline-block;
+  position: relative;
+  width: 6.5em;
+  margin: 5.5em 5.5em 0 5.5em;
+  font-family: "Novecentosanswide";
+  font-weight: 400;
+  font-size: 1em;
+  color: white;
+}
+/* line 315, ../../app/styles/main.sass */
+.service-menu a:hover {
+  cursor: pointer;
+}
+/* line 318, ../../app/styles/main.sass */
+.service-menu a.active {
+  color: #ffcc00;
+}
+/* line 321, ../../app/styles/main.sass */
+.service-menu a .ico {
+  display: inline-block;
+  font-size: 2.5em;
+  margin-bottom: 0.6em;
+}
+/* line 326, ../../app/styles/main.sass */
+.service-menu .arrow {
+  position: absolute;
+  top: 13.5em;
+  left: 5.5em;
+  height: 0em;
+  width: 0em;
+  border-left: 6em solid transparent;
+  border-right: 6em solid transparent;
+  border-bottom: 1.5em solid white;
+}
+
+/* line 338, ../../app/styles/main.sass */
+.service-section {
+  height: 29em;
+  text-align: center;
+}
+/* line 344, ../../app/styles/main.sass */
+.service-section .info-box {
+  display: inline-block;
+  width: 18.75em;
+  height: 21.875em;
+  border: 1px solid #bababa;
+  margin: 2em 0.6em;
+}
+/* line 351, ../../app/styles/main.sass */
+.service-section h2 {
+  font-size: 1em;
+  margin-top: 2em;
+}
+/* line 355, ../../app/styles/main.sass */
+.service-section p {
+  font-size: 0.75em;
+  margin: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+/* line 362, ../../app/styles/main.sass */
 .logo-section {
-  margin-top: 60px;
+  position: relative;
   height: 100%;
   background: url("../images/bg_head.jpg") no-repeat bottom center;
   background-size: cover;
+  overflow: hidden;
 }
-/* line 148, ../../app/styles/main.sass */
+/* line 369, ../../app/styles/main.sass */
 .logo-section .logo-container {
-  position: relative;
-  width: 60%;
-  height: 100%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  height: 85%;
   margin: auto;
   min-width: 960px;
 }
-/* line 155, ../../app/styles/main.sass */
+/* line 378, ../../app/styles/main.sass */
 .logo-section .logo-left {
   position: absolute;
   top: 0;
@@ -235,7 +523,7 @@ header .push {
   background-size: contain;
   z-index: 3;
 }
-/* line 165, ../../app/styles/main.sass */
+/* line 388, ../../app/styles/main.sass */
 .logo-section .logo-right {
   position: absolute;
   top: 0;
@@ -246,28 +534,22 @@ header .push {
   background-size: contain;
   z-index: 2;
 }
-/* line 175, ../../app/styles/main.sass */
+/* line 398, ../../app/styles/main.sass */
 .logo-section .logo-center {
   position: absolute;
-  top: 0;
+  top: 33%;
   left: 33%;
   width: 33%;
   height: 100%;
 }
-/* line 182, ../../app/styles/main.sass */
-.logo-section .logo-hat {
-  width: 100%;
-  height: 30%;
-  background: url("../images/logo_1.png") no-repeat bottom center;
-}
-/* line 187, ../../app/styles/main.sass */
+/* line 405, ../../app/styles/main.sass */
 .logo-section .logo-logo {
   background: url("../images/logo_2.png") no-repeat bottom center;
   background-size: contain;
   width: 100%;
   height: 30%;
 }
-/* line 193, ../../app/styles/main.sass */
+/* line 411, ../../app/styles/main.sass */
 .logo-section .logo-bottom {
   background: url("../images/banderole.png") no-repeat top center;
   background-size: contain;
@@ -278,18 +560,672 @@ header .push {
   text-align: center;
   padding: 10% 50% 0 50%;
 }
-/* line 203, ../../app/styles/main.sass */
+/* line 421, ../../app/styles/main.sass */
 .logo-section .banner {
   font-family: "Novecentosanswide";
   font-weight: 400;
   font-size: 1em;
-  text-transform: lowercase;
   color: #3b3b3b;
 }
 
-/* line 210, ../../app/styles/main.sass */
-.about-menu {
-  height: 15em;
+/* line 427, ../../app/styles/main.sass */
+.stil-section {
+  position: relative;
+  height: 80em;
+  background: url("../images/stil_header.jpg") no-repeat center -450px;
+  overflow: hidden;
+  z-index: -2;
+}
+/* line 434, ../../app/styles/main.sass */
+.stil-section .info-box {
+  position: relative;
+  margin: 2em auto 0 auto;
+  width: 58.5em;
+  height: 15.5em;
+  border: 1px solid #bababa;
+  background-color: white;
+}
+/* line 442, ../../app/styles/main.sass */
+.stil-section .info-box.first {
+  margin-top: 5em;
+}
+/* line 445, ../../app/styles/main.sass */
+.stil-section .info-box .number {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 48%;
+  top: -1em;
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  font-size: 2.4em;
+  background-color: #3b3b3b;
+  color: white;
+  font-family: "Novecentosanswide";
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+}
+/* line 461, ../../app/styles/main.sass */
+.stil-section .info-box h2 {
+  text-align: left;
+  margin: 1.5em 0 0 0;
+  padding: 0;
+  font-size: 1.4em;
+}
+/* line 467, ../../app/styles/main.sass */
+.stil-section .info-box .subheading2 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+}
+/* line 472, ../../app/styles/main.sass */
+.stil-section .info-box .main-text {
+  position: relative;
+  margin-top: 2em;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+/* line 478, ../../app/styles/main.sass */
+.stil-section .info-box .main-text:after {
+  content: "";
+  position: absolute;
+  top: -1em;
+  left: 0;
+  width: 20em;
+  height: 1px;
+  background-color: #3b3b3b;
+}
+/* line 488, ../../app/styles/main.sass */
+.stil-section .info-box .image-container {
+  float: left;
+  width: 14.25em;
+  height: 14.25em;
+  margin-left: 2em;
+  padding: 1.25em 0 0 1.25em;
+}
+/* line 495, ../../app/styles/main.sass */
+.stil-section .info-box .text-container {
+  float: left;
+  width: 34em;
+  margin: 2em 0 0 2em;
+  height: 100%;
+}
+
+/* line 501, ../../app/styles/main.sass */
+.reference-section {
+  position: relative;
+  height: 90em;
+  background: url("../images/referenzen_header.jpg") no-repeat center -450px;
+  overflow: hidden;
+  z-index: -2;
+}
+/* line 508, ../../app/styles/main.sass */
+.reference-section .menu {
+  overflow: hidden;
+  margin-top: 144px;
+  height: 12em;
   width: 100%;
   background-color: #3b3b3b;
+  text-align: center;
+}
+/* line 516, ../../app/styles/main.sass */
+.reference-section .menu .selectbox {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  margin: 6em auto;
+  border: 1px solid #ffcc00;
+  width: 9em;
+  padding-left: 1em;
+  overflow: hidden;
+  height: 2em;
+  line-height: 1.8em;
+  text-align: center;
+}
+/* line 529, ../../app/styles/main.sass */
+.reference-section .menu .selectbox:after {
+  content: "\25BC";
+  position: absolute;
+  top: 0.4em;
+  right: 1.6em;
+  font-size: 0.5em;
+  color: #ffcc00;
+}
+/* line 537, ../../app/styles/main.sass */
+.reference-section .menu .selectbox select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+}
+/* line 545, ../../app/styles/main.sass */
+.reference-section .menu .selectbox-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: #ffcc00;
+}
+/* line 549, ../../app/styles/main.sass */
+.reference-section .reference-content {
+  margin: 3em;
+  text-align: center;
+}
+/* line 553, ../../app/styles/main.sass */
+.reference-section .reference-content .reference-image {
+  margin: 0.5em 1em;
+}
+
+/* line 556, ../../app/styles/main.sass */
+.studio-section {
+  position: relative;
+  height: 75em;
+  background: url("../images/studio_header.jpg") no-repeat center -450px;
+  overflow: hidden;
+  z-index: -2;
+}
+/* line 563, ../../app/styles/main.sass */
+.studio-section .menu {
+  position: relative;
+  overflow: visible;
+  margin-top: 144px;
+  height: 12em;
+  width: 100%;
+  background-color: #3b3b3b;
+  text-align: center;
+}
+/* line 572, ../../app/styles/main.sass */
+.studio-section .menu .quote {
+  position: relative;
+  width: 960px;
+  margin: auto;
+}
+/* line 577, ../../app/styles/main.sass */
+.studio-section .menu .quote:before {
+  content: "\e610";
+  position: absolute;
+  top: -1em;
+  left: 1em;
+  width: 1.3em;
+  height: 1.3em;
+  line-height: 1.2em;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-family: "IconFont";
+  font-size: 2em;
+  padding: 0.5em;
+  color: #3b3b3b;
+  background-color: white;
+}
+/* line 592, ../../app/styles/main.sass */
+.studio-section .menu .quote-links {
+  -webkit-transform: scaleX(0.5);
+  -moz-transform: scaleX(0.5);
+  -ms-transform: scaleX(0.5);
+  -o-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+  float: left;
+  width: 4em;
+  padding: 1em 0.33em 0 1.5em;
+  font-size: 3em;
+}
+/* line 599, ../../app/styles/main.sass */
+.studio-section .menu .quote-links a {
+  display: inline-block;
+  color: #5e5e5e;
+  margin-right: 1em;
+  cursor: pointer;
+}
+/* line 605, ../../app/styles/main.sass */
+.studio-section .menu .quote-links a.active {
+  color: white;
+}
+/* line 608, ../../app/styles/main.sass */
+.studio-section .menu .quote-text-box {
+  float: left;
+  width: 35em;
+  margin: 3em 0 0 -4em;
+}
+/* line 613, ../../app/styles/main.sass */
+.studio-section .menu .quote-text {
+  font-size: 0.8em;
+  color: white;
+  text-align: left;
+}
+/* line 618, ../../app/styles/main.sass */
+.studio-section .menu h3 {
+  font-size: 0.8em;
+  margin: 0;
+  color: white;
+  text-align: left;
+}
+/* line 624, ../../app/styles/main.sass */
+.studio-section .features-container {
+  width: 960px;
+  margin: auto;
+  text-align: center;
+  padding-top: 2em;
+}
+/* line 630, ../../app/styles/main.sass */
+.studio-section .features-container .features-box {
+  position: relative;
+  display: inline-block;
+  width: 25em;
+  height: 5em;
+  margin: 1.5em;
+}
+/* line 637, ../../app/styles/main.sass */
+.studio-section .features-container .ico {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  font-size: 3em;
+}
+/* line 643, ../../app/styles/main.sass */
+.studio-section .features-container h3 {
+  position: relative;
+  font-size: 0.74em;
+  margin: 1em 0 0 8em;
+  text-align: left;
+  color: #212121;
+}
+/* line 650, ../../app/styles/main.sass */
+.studio-section .features-container h3:after {
+  content: "";
+  position: absolute;
+  bottom: -0.5em;
+  left: 0;
+  width: 5em;
+  height: 1px;
+  background-color: black;
+}
+/* line 659, ../../app/styles/main.sass */
+.studio-section .features-container p {
+  margin-left: 8em;
+  font-size: 0.74em;
+  text-align: left;
+  line-height: 1.5em;
+}
+/* line 665, ../../app/styles/main.sass */
+.studio-section .social-container {
+  width: 960px;
+  margin: auto;
+  text-align: center;
+  padding-top: 3em;
+}
+/* line 671, ../../app/styles/main.sass */
+.studio-section .social-container .social-box {
+  position: relative;
+  display: inline-block;
+  width: 25em;
+  height: 3.5em;
+  margin: 0.5em;
+  border: 1px solid #bababa;
+}
+/* line 679, ../../app/styles/main.sass */
+.studio-section .social-container .ico {
+  position: absolute;
+  top: 0.6em;
+  left: 0.9em;
+  font-size: 1.7em;
+}
+/* line 685, ../../app/styles/main.sass */
+.studio-section .social-container h2 {
+  margin: 0 4em 0 0;
+  font-size: 0.85em;
+  text-align: right;
+  line-height: 4em;
+  text-transform: lowercase;
+}
+
+/* line 692, ../../app/styles/main.sass */
+.contact-section {
+  position: relative;
+  height: 72em;
+  background: url("../images/header.jpg") no-repeat center -450px;
+  overflow: hidden;
+  z-index: -2;
+}
+/* line 699, ../../app/styles/main.sass */
+.contact-section .menu {
+  overflow: hidden;
+  margin-top: 144px;
+  height: 12em;
+  width: 100%;
+  background-color: #3b3b3b;
+  text-align: center;
+}
+/* line 707, ../../app/styles/main.sass */
+.contact-section .menu form {
+  margin-top: 70px;
+}
+/* line 710, ../../app/styles/main.sass */
+.contact-section .menu input {
+  width: 360px;
+  height: 16px;
+  padding: 16px 0 16px 35px;
+  line-height: normal !important;
+  font-size: 12px;
+  font-family: "Novecentosanswide";
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid #9d9d9d;
+  background-color: #3b3b3b;
+}
+/* line 724, ../../app/styles/main.sass */
+.contact-section .menu p {
+  color: white;
+  font-size: 0.7em;
+}
+/* line 728, ../../app/styles/main.sass */
+.contact-section .menu .button-wrapper {
+  display: inline-block;
+  margin-left: -8px;
+}
+/* line 732, ../../app/styles/main.sass */
+.contact-section .contact-content {
+  width: 666px;
+  margin: auto;
+  padding-top: 5em;
+}
+/* line 737, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-images {
+  float: left;
+  width: 12em;
+  text-align: center;
+}
+/* line 742, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-social {
+  margin-top: 3em;
+}
+/* line 745, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-social a {
+  display: inline-block;
+  margin: 0 0.3em;
+}
+/* line 750, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-social .facebook:hover {
+  color: #6279b1;
+}
+/* line 754, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-social .linkedin:hover {
+  color: #1d87bd;
+}
+/* line 758, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-social .pinterest:hover {
+  color: #cb2027;
+}
+/* line 761, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text {
+  float: left;
+  width: 29em;
+}
+/* line 765, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text h2 {
+  font-size: 1.25em;
+  color: #3b3b3b;
+  text-align: left;
+  margin: 0;
+}
+/* line 771, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text .name {
+  font-size: 0.94em;
+  color: #3b3b3b;
+  text-align: left;
+}
+/* line 776, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text p {
+  position: relative;
+  font-size: 0.75em;
+  color: #3b3b3b;
+  line-height: 1.5em;
+  margin-top: 4em;
+}
+/* line 783, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text p:after {
+  content: "";
+  position: absolute;
+  top: -2em;
+  left: 0;
+  width: 24em;
+  height: 1px;
+  background-color: #ffcc00;
+}
+/* line 792, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-text p:before {
+  content: "";
+  position: absolute;
+  bottom: -3em;
+  left: 0;
+  width: 24em;
+  height: 1px;
+  background-color: #ffcc00;
+}
+/* line 801, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-rest {
+  clear: both;
+  margin-top: 24em;
+  text-align: center;
+  font-size: 0.7em;
+}
+/* line 807, ../../app/styles/main.sass */
+.contact-section .contact-content .contact-rest .button {
+  margin-top: 1.5em;
+}
+
+/* line 810, ../../app/styles/main.sass */
+footer {
+  width: 100%;
+}
+/* line 813, ../../app/styles/main.sass */
+footer .refer {
+  float: left;
+  width: 42%;
+  height: 300px;
+  background-color: #2f2f2f;
+}
+/* line 819, ../../app/styles/main.sass */
+footer .refer .refer-container {
+  float: right;
+  width: 17.5em;
+  margin: 1em 1em 0 0;
+  overflow: hidden;
+}
+/* line 825, ../../app/styles/main.sass */
+footer .refer .refer-container .refer-heading {
+  position: relative;
+}
+/* line 828, ../../app/styles/main.sass */
+footer .refer .refer-container .avatar {
+  position: absolute;
+  top: 0.1em;
+  left: 0;
+  display: block;
+  float: left;
+  font-size: 3.6em;
+  color: #3b3b3b;
+}
+/* line 837, ../../app/styles/main.sass */
+footer .refer .refer-container h2 {
+  font-size: 0.8em;
+  color: white;
+  text-align: left;
+  margin: 1.5em 0 0 6em;
+  line-height: 1.5em;
+}
+/* line 844, ../../app/styles/main.sass */
+footer .refer .refer-container .refer-call {
+  font-size: 0.7em;
+  color: white;
+  text-align: left;
+  margin: 0 0 0 6.7em;
+  line-height: 1.5em;
+}
+/* line 851, ../../app/styles/main.sass */
+footer .refer .refer-container .refer-text {
+  margin: 4em 0 0 0;
+  color: #999999;
+  line-height: 1.5em;
+  font-size: 0.7em;
+  text-align: left;
+}
+/* line 858, ../../app/styles/main.sass */
+footer .refer .refer-container .refer-social {
+  position: relative;
+  font-size: 0.8em;
+  margin-top: 1.5em;
+  color: white;
+  text-align: left;
+}
+/* line 865, ../../app/styles/main.sass */
+footer .refer .refer-container .refer-social:before {
+  content: "";
+  position: absolute;
+  bottom: -0.6em;
+  left: 0;
+  width: 12.5em;
+  font-size: 1em;
+  height: 1px;
+  background-color: #3b3b3b;
+}
+/* line 875, ../../app/styles/main.sass */
+footer .refer .refer-container .social {
+  display: inline-block;
+  margin: 0 0.5em;
+  font-size: 1.2em;
+}
+/* line 880, ../../app/styles/main.sass */
+footer .refer .refer-container .social:first {
+  margin-left: 3em;
+}
+/* line 883, ../../app/styles/main.sass */
+footer .refer .refer-container .button {
+  margin-top: 2em;
+}
+/* line 886, ../../app/styles/main.sass */
+footer .login {
+  float: left;
+  width: 58%;
+  height: 300px;
+  background-color: #353535;
+}
+/* line 892, ../../app/styles/main.sass */
+footer .login h2 {
+  font-size: 1.3em;
+  color: white;
+  text-align: left;
+  margin: 1.5em 0 0 3.1em;
+  line-height: 1.5em;
+}
+/* line 899, ../../app/styles/main.sass */
+footer .login .login-subheading {
+  font-size: 0.9em;
+  color: white;
+  text-align: left;
+  margin: 0 0 0 4.4em;
+  line-height: 1.5em;
+}
+/* line 906, ../../app/styles/main.sass */
+footer .login .description {
+  margin: 2.8em 0 0 5.7em;
+  width: 39.3em;
+  font-size: 0.7em;
+  color: #999999;
+  line-height: 1.5em;
+}
+/* line 913, ../../app/styles/main.sass */
+footer .login form {
+  margin: 1.2em 0 0 4em;
+}
+/* line 916, ../../app/styles/main.sass */
+footer .login input {
+  width: 200px;
+  height: 16px;
+  padding: 10px 0 10px 20px;
+  line-height: normal !important;
+  font-size: 12px;
+  font-family: "Novecentosanswide";
+  font-weight: 600;
+  color: #dddddd;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid #444444;
+  background-color: #353535;
+}
+/* line 930, ../../app/styles/main.sass */
+footer .login .button {
+  margin: 1em 0 0 0;
+}
+/* line 933, ../../app/styles/main.sass */
+footer .maps {
+  clear: both;
+  float: left;
+  width: 42%;
+  height: 300px;
+}
+/* line 939, ../../app/styles/main.sass */
+footer .maps #map-canvas {
+  height: 300px;
+}
+/* line 942, ../../app/styles/main.sass */
+footer .contact {
+  float: left;
+  width: 58%;
+  height: 300px;
+  background-color: #3b3b3b;
+}
+/* line 948, ../../app/styles/main.sass */
+footer .contact h2 {
+  font-size: 1.3em;
+  color: white;
+  text-align: left;
+  margin: 1.5em 0 0 3.1em;
+  line-height: 1.5em;
+}
+/* line 955, ../../app/styles/main.sass */
+footer .contact .address {
+  margin-left: 5.33em;
+  font-size: 0.75em;
+  color: white;
+  line-height: 1.6em;
+}
+/* line 961, ../../app/styles/main.sass */
+footer .contact .address a,
+footer .contact .address a:visited,
+footer .contact .address a:active,
+footer .contact .address a:hover,
+footer .contact .address a:link {
+  color: #ffcc00;
+}
+/* line 968, ../../app/styles/main.sass */
+footer .contact .contact-links {
+  margin: 4em 0 0 5.33em;
+  font-size: 0.75em;
+  color: white;
+}
+/* line 973, ../../app/styles/main.sass */
+footer .contact .contact-links a,
+footer .contact .contact-links a:visited,
+footer .contact .contact-links a:active,
+footer .contact .contact-links a:hover,
+footer .contact .contact-links a:link {
+  color: white;
+  text-decoration: underline;
 }

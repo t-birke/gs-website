@@ -35,6 +35,7 @@ $container-style: magic
 +font-face("Novecentosanswide", font-files("Novecentosanswide-Bold-webfont.woff", woff, "Novecentosanswide-Bold-webfont.ttf", truetype, "Novecentosanswide-Bold-webfont.svg", svg), "Novecentosanswide-Bold-webfont.eot", $weight: 800, $style: bold)
 +font-face("Novecentosanswide", font-files("Novecentosanswide-DemiBold-webfont.woff", woff, "Novecentosanswide-DemiBold-webfont.ttf", truetype, "Novecentosanswide-DemiBold-webfont.svg", svg), "Novecentosanswide-DemiBold-webfont.eot", $weight: 600, $style: normal)
 +font-face("Novecentosanswide", font-files("Novecentosanswide-Medium-webfont.woff", woff, "Novecentosanswide-Medium-webfont.ttf", truetype, "Novecentosanswide-Medium-webfont.svg", svg), "Novecentosanswide-Medium-webfont.eot", $weight: 400, $style: thin)
++font-face("IconFont", font-files("gs-icon-font.woff", woff, "gs-icon-font.ttf", truetype, "gs-icon-font.svg#gs-icon-font", svg), "gs-icon-font.eot", $weight: normal, $style: normal)
 
 html
   height: 100%
@@ -48,40 +49,31 @@ body
   -webkit-font-smoothing: antialiased
 
 a,
-a:active,
-a:focus
+a:visited, 
+a:link, 
+a:hover, 
+a:active
+  color: $text-color
   outline: none
   text-decoration: none
+
+.ico
+  font-family: 'IconFont'
+  font-weight: normal
+  font-style: normal
+  -webkit-font-smoothing: antialiased
 
 input,
 input:focus
   +box-shadow(none)
   outline: none
-
-[data-icon]:before
-  font-family: 'IconFont'
-  content: attr(data-icon)
-  speak: none
-  font-weight: normal
-  font-variant: normal
-  text-transform: none
-  line-height: 1
-
-.pull-left
-  float: left
-
-.pull-right
-  float: right
 //menu styles
-
-.ico
-  font-family: IconFont
-  font-style: normal
 
 h1,
 h2,
 h3
   text-align: center
+  text-transform: uppercase
 
 h1
   font-family: 'Novecentosanswide'
@@ -99,6 +91,7 @@ h3
   text-align: center
 
 header
+  +box-shadow(0 0 12px rgba(0,0,0,0.1))
   position: fixed
   top: 0
   left: 0
@@ -106,11 +99,22 @@ header
   height: 60px
   background-color: white
   line-height: 60px
+  z-index: 100
 
   .menu
+    position: relative
     width: 960px
     text-align: center
     margin: auto
+
+  .logo-hat
+    position: absolute
+    top: 0
+    left: 47.5%
+    width: 5%
+    height: 100%
+    background: url('../images/logo_1.png') no-repeat center center
+    background-size: contain
 
   a
     +border-radius(5px)
@@ -139,17 +143,235 @@ header
   .push
     margin-right: 11em
 
+h1
+  font-size: 2.8em
+  color: white
+
+h3
+  font-size: 1em
+  color: white
+  margin-top: 7em
+
+.subheading
+  position: relative
+  font-size: 0.94em
+  margin: 4em auto
+  width: 26em
+  color: white
+  text-align: center
+
+  &:after
+    content: ""
+    position: absolute
+    top: -1em
+    left: 4em
+    width: 18.75em
+    height: 1px
+    background-color: white
+
+.button
+  +border-radius(5px)
+  width: 240px
+  height: 50px
+  line-height: normal !important
+  font-size: 12px
+  font-family: 'Novecentosanswide'
+  font-weight: 600
+  color: $gs-yellow
+  text-transform: uppercase
+  outline: none
+  border: 1px solid $gs-yellow
+  background-color: transparent
+
+  &:hover
+    cursor: pointer
+
+.facebook
+  color: #6279b1
+
+.instagram
+  color: #ffdb4c
+
+.dribble
+  color: #ff3398
+
+.behance
+  color: #33c7f1
+
+.section-white-bg
+  position: absolute
+  top: 450px
+  left: 0
+  background-color: white
+  width: 100%
+  height: 100%
+  z-index: -1
+
+.hidden
+  display: none
+
+#popup-background
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: rgba(222,0,0,0.85)
+  z-index: 1000
+  overflow-y: scroll
+
+.popup
+  +box-shadow(0 0 20px rgba(0,0,0,0.7))
+  margin: 40px auto
+  width: 90%
+  max-width: 880px
+  background-color: white
+  height: 1400px
+
+  .popup-header
+    position: relative
+    width: 100%
+    background-color: #1b1b1b
+    padding: 50px 0
+    @media only screen and (max-width: 800px)
+      font-size: 80%
+    @media only screen and (max-width: 480px)
+      font-size: 60%
+
+    h3
+      position: relative
+      font-size: 1.875em
+      margin: 0
+      font-family: "Open Sans"
+      padding: 0 20px
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: -20px
+        left: 33%
+        width: 33%
+        height: 1px
+        background-color: white
+
+    p
+      font-size: .75em
+      text-align: center
+      color: white
+      margin-top: 30px
+      padding: 0 20px
+
+    .popup-links
+      text-align: center
+      margin-top: 30px
+      color: #3e3e3e
+      padding: 0 20px
+
+    a
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: .75em
+      color: #3e3e3e
+      text-transform: uppercase
+
+    .close
+      +scaleY(0.7)
+      position: absolute
+      top: 10px
+      right: 14px
+      font-size: 20px
+      color: white
+
+      &:hover
+        cursor: pointer
+
+.service-menu
+  height: 15em
+  width: 100%
+  background-color: $bg-grey
+  text-align: center
+
+  .service-menu-container
+    position: relative
+    width: 960px
+    margin: auto
+
+  a:visited, 
+  a:link, 
+  a:hover, 
+  a:active
+    color: white
+
+  a
+    display: inline-block
+    position: relative
+    width: 6.5em
+    margin: 5.5em 5.5em 0 5.5em
+    font-family: 'Novecentosanswide'
+    font-weight: 400
+    font-size: 1em
+    color: white
+
+    &:hover
+      cursor: pointer
+
+    &.active
+      color: $gs-yellow
+
+    .ico
+      display: inline-block
+      font-size: 2.5em
+      margin-bottom: .6em
+
+  .arrow
+    position: absolute
+    top: 13.5em
+    left: 5.5em
+    height: 0em
+    width: 0em
+    border-left: 6em solid transparent
+    border-right: 6em solid transparent
+    border-bottom: 1.5em solid white
+
+ 
+
+.service-section
+  height: 29em
+  text-align: center
+
+  .service-container
+
+  .info-box
+    display: inline-block
+    width: 18.75em
+    height: 21.875em
+    border: 1px solid #bababa
+    margin: 2em 0.6em
+
+  h2
+    font-size: 1em
+    margin-top: 2em
+
+  p
+    font-size: .75em
+    margin: 1.5em
+    text-align: center
+    line-height: 1.5em
+
 //logo section
 .logo-section
-  margin-top: 60px
+  position: relative
   height: 100%
   background: url('../images/bg_head.jpg') no-repeat bottom center
   background-size: cover
+  overflow: hidden
 
   .logo-container
-    position: relative
-    width: 60%
-    height: 100%
+    position: absolute
+    top: 15%
+    left: 10%
+    width: 80%
+    height: 85%
     margin: auto
     min-width: 960px
 
@@ -175,15 +397,10 @@ header
 
   .logo-center
     position: absolute
-    top: 0
+    top: 33%
     left: 33%
     width: 33%
     height: 100%
-    
-  .logo-hat
-    width: 100%
-    height: 30%
-    background: url('../images/logo_1.png') no-repeat bottom center
 
   .logo-logo
     background: url('../images/logo_2.png') no-repeat bottom center
@@ -205,10 +422,558 @@ header
     font-family: 'Novecentosanswide'
     font-weight: 400
     font-size: 1em
-    text-transform: lowercase
     color: $text-color
 
-.about-menu
-  height: 15em
+.stil-section
+  position: relative
+  height: 80em
+  background: url('../images/stil_header.jpg') no-repeat center -450px
+  overflow: hidden
+  z-index: -2
+
+  .info-box
+    position: relative
+    margin: 2em auto 0 auto
+    width: 58.5em
+    height: 15.5em
+    border: 1px solid #bababa
+    background-color: white
+
+    &.first
+      margin-top: 5em
+
+    .number
+      +border-radius(50%)
+      position: absolute
+      left: 48%
+      top: -1em
+      display: inline-block
+      height: 1.6em
+      width: 1.6em
+      font-size: 2.4em
+      background-color: $bg-grey
+      color: white
+      font-family: "Novecentosanswide"
+      font-weight: 400
+      line-height: 1.5em
+      text-align: center
+
+    h2
+      text-align: left
+      margin: 1.5em 0 0 0
+      padding: 0
+      font-size: 1.4em
+
+    .subheading2
+      margin: 0
+      padding: 0
+      font-size: .9em
+
+    .main-text
+      position: relative
+      margin-top: 2em
+      font-size: .75em
+      line-height: 1.5em
+
+      &:after
+        content: ""
+        position: absolute
+        top: -1em
+        left: 0
+        width: 20em
+        height: 1px
+        background-color: $bg-grey
+
+
+    .image-container
+      float: left
+      width: 14.25em
+      height: 14.25em
+      margin-left: 2em
+      padding: 1.25em 0 0 1.25em
+
+    .text-container
+      float: left
+      width: 34em
+      margin: 2em 0 0 2em
+      height: 100%
+
+.reference-section
+  position: relative
+  height: 90em
+  background: url('../images/referenzen_header.jpg') no-repeat center -450px
+  overflow: hidden
+  z-index: -2
+
+  .menu
+    overflow: hidden
+    margin-top: 144px
+    height: 12em
+    width: 100%
+    background-color: $bg-grey
+    text-align: center
+
+    .selectbox
+      +border-radius(3px)
+      +appearance(none)
+      position: relative
+      margin: 6em auto
+      border: 1px solid $gs-yellow
+      width: 9em
+      padding-left: 1em
+      overflow: hidden
+      height: 2em
+      line-height: 1.8em
+      text-align: center
+
+      &:after
+        content: "\25BC"
+        position: absolute
+        top: .4em
+        right: 1.6em
+        font-size: .5em
+        color: $gs-yellow
+
+    .selectbox select
+      padding: 5px 8px
+      width: 130%
+      border: none
+      box-shadow: none
+      background: transparent
+      background-image: none
+
+    .selectbox-none
+      +appearance(none)
+      color: $gs-yellow
+
+  .reference-content
+    margin: 3em
+    text-align: center
+
+    .reference-image
+      margin: .5em 1em
+
+.studio-section
+  position: relative
+  height: 75em
+  background: url('../images/studio_header.jpg') no-repeat center -450px
+  overflow: hidden
+  z-index: -2
+
+  .menu
+    position: relative
+    overflow: visible
+    margin-top: 144px
+    height: 12em
+    width: 100%
+    background-color: $bg-grey
+    text-align: center
+
+    .quote
+      position: relative
+      width: 960px
+      margin: auto
+
+      &:before
+        content: "\e610"
+        position: absolute
+        top: -1em
+        left: 1em
+        width: 1.3em
+        height: 1.3em
+        line-height: 1.2em
+        +border-radius(50%)
+        font-family: "IconFont"
+        font-size: 2em
+        padding: .5em
+        color: $bg-grey
+        background-color: white
+
+    .quote-links
+      +scaleX(0.5)
+      float: left
+      width: 4em
+      padding: 1em .33em 0 1.5em
+      font-size: 3em
+
+      a
+        display: inline-block
+        color: #5e5e5e
+        margin-right: 1em
+        cursor: pointer
+
+        &.active
+          color: white
+
+    .quote-text-box
+      float: left
+      width: 35em
+      margin: 3em 0 0 -4em
+
+    .quote-text
+      font-size: .8em
+      color: white
+      text-align: left
+
+    h3
+      font-size: .8em
+      margin: 0
+      color: white
+      text-align: left
+
+  .features-container
+    width: 960px
+    margin: auto
+    text-align: center
+    padding-top: 2em
+
+    .features-box
+      position: relative
+      display: inline-block
+      width: 25em
+      height: 5em
+      margin: 1.5em
+
+    .ico
+      position: absolute
+      top: .5em
+      left: .5em
+      font-size: 3em
+
+    h3
+      position: relative
+      font-size: .74em
+      margin: 1em 0 0 8em
+      text-align: left
+      color: #212121
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: -.5em
+        left: 0
+        width: 5em
+        height: 1px
+        background-color: black
+
+    p
+      margin-left: 8em
+      font-size: .74em
+      text-align: left
+      line-height: 1.5em
+
+  .social-container
+    width: 960px
+    margin: auto
+    text-align: center
+    padding-top: 3em
+
+    .social-box
+      position: relative
+      display: inline-block
+      width: 25em
+      height: 3.5em
+      margin: .5em
+      border: 1px solid #bababa
+
+    .ico
+      position: absolute
+      top: .6em
+      left: .9em
+      font-size: 1.7em
+
+    h2
+      margin: 0 4em 0 0
+      font-size: .85em
+      text-align: right
+      line-height: 4em
+      text-transform: lowercase
+
+.contact-section
+  position: relative
+  height: 72em
+  background: url('../images/header.jpg') no-repeat center -450px
+  overflow: hidden
+  z-index: -2
+
+  .menu
+    overflow: hidden
+    margin-top: 144px
+    height: 12em
+    width: 100%
+    background-color: $bg-grey
+    text-align: center
+
+    form
+      margin-top: 70px
+
+    input
+      width: 360px
+      height: 16px
+      padding: 16px 0 16px 35px
+      line-height: normal !important
+      font-size: 12px
+      font-family: 'Novecentosanswide'
+      font-weight: 600
+      color: white
+      text-transform: uppercase
+      outline: none
+      border: 1px solid #9d9d9d
+      background-color: $bg-grey
+
+    p
+      color: white
+      font-size: .7em
+
+    .button-wrapper
+      display: inline-block
+      margin-left: -8px
+
+  .contact-content
+    width: 666px
+    margin: auto
+    padding-top: 5em
+
+    .contact-images
+      float: left
+      width: 12em
+      text-align: center
+
+    .contact-social
+      margin-top: 3em
+
+      a
+        display: inline-block
+        margin: 0 .3em
+
+      .facebook
+        &:hover
+          color: #6279b1
+
+      .linkedin
+        &:hover
+          color: #1d87bd
+
+      .pinterest
+        &:hover
+          color: #cb2027
+
+    .contact-text
+      float: left
+      width: 29em
+
+      h2
+        font-size: 1.25em
+        color: $text-color
+        text-align: left
+        margin: 0
+
+      .name
+        font-size: .94em
+        color: $text-color
+        text-align: left
+
+      p
+        position: relative
+        font-size: .75em
+        color: $text-color
+        line-height: 1.5em
+        margin-top: 4em
+
+        &:after
+          content: ""
+          position: absolute
+          top: -2em
+          left: 0
+          width: 24em
+          height: 1px
+          background-color: $gs-yellow
+
+        &:before
+          content: ""
+          position: absolute
+          bottom: -3em
+          left: 0
+          width: 24em
+          height: 1px
+          background-color: $gs-yellow
+
+    .contact-rest
+      clear: both
+      margin-top: 24em
+      text-align: center
+      font-size: .7em
+
+      .button
+        margin-top: 1.5em
+
+footer
   width: 100%
-  background-color: $bg-grey
+
+  .refer
+    float: left
+    width: 42%
+    height: 300px
+    background-color: #2f2f2f
+
+    .refer-container
+      float: right
+      width: 17.5em
+      margin: 1em 1em 0 0
+      overflow: hidden
+
+      .refer-heading
+        position: relative
+
+      .avatar
+        position: absolute
+        top: 0.1em
+        left: 0
+        display: block
+        float: left
+        font-size: 3.6em
+        color: $text-color
+
+      h2
+        font-size: .8em
+        color: white
+        text-align: left
+        margin: 1.5em 0 0 6em
+        line-height: 1.5em
+
+      .refer-call
+        font-size: .7em
+        color: white
+        text-align: left
+        margin: 0 0 0 6.7em
+        line-height: 1.5em
+
+      .refer-text
+        margin: 4em 0 0 0
+        color: #999
+        line-height: 1.5em
+        font-size: .7em
+        text-align: left
+
+      .refer-social
+        position: relative
+        font-size: .8em
+        margin-top: 1.5em
+        color: white
+        text-align: left
+
+        &:before
+          content: ""
+          position: absolute
+          bottom: -.6em
+          left: 0
+          width: 12.5em
+          font-size: 1em
+          height: 1px
+          background-color: $text-color
+
+      .social
+        display: inline-block
+        margin: 0 .5em
+        font-size: 1.2em
+
+        &:first
+          margin-left: 3em
+
+      .button
+        margin-top: 2em
+
+  .login
+    float: left
+    width: 58%
+    height: 300px
+    background-color: #353535
+
+    h2
+      font-size: 1.3em
+      color: white
+      text-align: left
+      margin: 1.5em 0 0 3.1em
+      line-height: 1.5em
+
+    .login-subheading
+      font-size: .9em
+      color: white
+      text-align: left
+      margin: 0 0 0 4.4em
+      line-height: 1.5em
+
+    .description
+      margin: 2.8em 0 0 5.7em
+      width: 39.3em
+      font-size: .7em
+      color: #999
+      line-height: 1.5em
+
+    form
+      margin: 1.2em 0 0 4em
+
+    input
+      width: 200px
+      height: 16px
+      padding: 10px 0 10px 20px
+      line-height: normal !important
+      font-size: 12px
+      font-family: 'Novecentosanswide'
+      font-weight: 600
+      color: #ddd
+      text-transform: uppercase
+      outline: none
+      border: 1px solid #444
+      background-color: #353535
+
+    .button
+      margin: 1em 0 0 0
+
+  .maps
+    clear: both
+    float: left
+    width: 42%
+    height: 300px
+
+    #map-canvas
+      height: 300px
+
+  .contact
+    float: left
+    width: 58%
+    height: 300px
+    background-color: #3b3b3b
+
+    h2
+      font-size: 1.3em
+      color: white
+      text-align: left
+      margin: 1.5em 0 0 3.1em
+      line-height: 1.5em
+
+    .address
+      margin-left: 5.33em
+      font-size: .75em
+      color: white
+      line-height: 1.6em
+
+      a,
+      a:visited,
+      a:active,
+      a:hover,
+      a:link
+        color: $gs-yellow
+
+    .contact-links
+      margin: 4em 0 0 5.33em
+      font-size: .75em
+      color: white
+
+      a,
+      a:visited,
+      a:active,
+      a:hover,
+      a:link
+        color: white
+        text-decoration: underline
