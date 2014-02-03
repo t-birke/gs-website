@@ -15,16 +15,15 @@
   <!-- endbuild -->
 </head>
 <body>
-<div id="popup-background" class="hidden">
-</div>
+<div id="popup-background" class="hidden"></div>
 <header>
   <div class="menu">
-    <a href="#">Service</a>
-    <a href="#">Unser Stil</a>
-    <a class="push" href="#">Referenzen</a>
-    <a href="#">Das Studio</a>
-    <a href="#">Anfrage</a>
-    <a href="#">Kontakt</a>
+    <a href="#service">Service</a>
+    <a href="#stil">Unser Stil</a>
+    <a class="push" href="#referenz">Referenzen</a>
+    <a href="#studio">Das Studio</a>
+    <a href="#anfrage">Anfrage</a>
+    <a href="#kontakt">Kontakt</a>
   </div>
   <div class="logo-hat" data-type="hat" data-speed="2"></div>
 </header>
@@ -40,81 +39,83 @@
     <div class="logo-right"></div>
   </div>
 </section>
-<section class="service-menu" data-type="background" data-speed="2">
-  <div class="service-menu-container">
-    <a class="branding active" data-target="konzeption">
-      <i class="ico">&#xe606;</i><br>
-      Konzeption</a>
-    <a class="ui" data-target="ui">
-      <i class="ico">&#xe608;</i><br>
-      Design</a>
-    <a class="print" data-target="print">
-      <i class="ico">&#xe607;</i><br>
-      Entwicklung</a>
-    <div class="arrow"></div>
+<a name="service" class="text-anchor"></a>
+<section class="service-menu" name="service" data-type="background" data-speed="2">
+  <div class="service-menu-background">
+    <div class="service-menu-container">
+      <a class="branding active" data-target="konzeption">
+        <i class="ico moveright">&#xe606;</i><br>
+        Konzeption</a>
+      <a class="ui" data-target="ui">
+        <i class="ico">&#xe608;</i><br>
+        Design</a>
+      <a class="print" data-target="print">
+        <i class="ico">&#xe607;</i><br>
+        Entwicklung</a>
+      <div class="arrow"></div>
+    </div>
   </div>
-</section>
-<section class="service-section">
   <div class="section-white-bg"></div>
   <div class="service-container" data-content="konzeption">
     <div class="info-box">
       <img src="../images/branding_standard.jpg" />
       <h2>Branding/CI Konzept</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Das Branding und die CI gehören zu einem der wichtigsten Bestandteile in Ihrem Unternehmen. Diese bilden den Grundstein für einen starken Eindruck, den Ihr Unternehmen bei Kunden hinterlassen sollte.</p>
     </div>
     <div class="info-box">
       <img src="../images/ui_standard.jpg" />
       <h2>UI Konzeption</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Der Online-Auftritt zählt heutzutage zu den Must-Haves für jedes seriöse und moderne Unternehmen. Die Website sollte als zentrales Ziel Ihres Marketings ein spannungsvolles Zusammenspiel zwischen Informativen und ansprechenden Aspekten sein.</p>
     </div>
     <div class="info-box">
       <img src="../images/print_standard.jpg" />
       <h2>Social &amp; Print Konzepte</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>The Gentleman Studio richtet sich nach Ihrer Unternehmensidentität und verleiht mit Rücksicht auf Ihre konstanten und verlässlichen Werte einen zeitgemäßen Auftritt.</p>
     </div>
   </div>
   <div class="service-container hidden" data-content="ui">
     <div class="info-box">
       <img src="../images/branding_design.jpg" />
       <h2>Branding/CI Konzept</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Ein Logo ist nicht nur ein Zeichen, sondern viel mehr Ihr Aushängeschild für die nächsten Jahre! Wir entwickeln Logos mit großer Aussagekraft und hohem Wiedererkennungswert.</p>
     </div>
     <div class="info-box">
       <img src="../images/ui_design.jpg" />
       <h2>UI Konzeption</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Der erste Eindruck zählt! Wir kreieren aus Ihrem digitalen Auftritt einen umsatzstarken Verkäufer, der Ihre Kunden schnell zum gewünschten Ziel führt. Wir achten dabei stets auf zielorientierte Usability, starke User Experience &amp; klare Strukturen.</p>
     </div>
     <div class="info-box">
       <img src="../images/print_design.jpg" />
       <h2>Social &amp; Print Konzepte</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Angefangen von einer edlen Unternehmensbroschüre, über eine moderne Speisekarte, bis hin zu Veranstaltungsplakaten garantieren wir qualitativ hochwertiges und emotionales Design. Unsere Produkte lassen Emotionen hochleben und bleiben langfristig im Gedächtnis erhalten.</p>
     </div>
   </div>
   <div class="service-container hidden" data-content="print">
     <div class="info-box">
       <img src="../images/website_entwicklung.jpg" />
       <h2>Branding/CI Konzept</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Alles aus einer Hand! Wir hauchen dem Design Leben ein! Vom einfachen Webauftritt bis hin zum komplexen Shopsystem setzen wir auf viel Performance und leicht bedienbare Lösungen.</p>
     </div>
     <div class="info-box">
       <img src="../images/app_entwicklung.jpg" />
       <h2>UI Konzeption</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Mit gezielten Animationen und kurzen Wegen durch den Bestellprozess machen wir Online-Einkäufe zum Vergnügen. Wir stellen eine Oberfläche zur Verfügung mit dieser Sie all Ihren Content verwalten könnten – oder wir übernehmen das für Sie.</p>
     </div>
     <div class="info-box">
       <img src="../images/wordpress_entwicklung.jpg" />
       <h2>Social &amp; Print Konzepte</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>Eine mobile Website hat heutzutage eine ähnliche Priorität wie eine Webseite. Wir entwickeln für Sie responsive Designs, Web-,iOS sowie Android Apps und legen dabei besonders viel Wert auf die Performance und Stabilität der Applikation.</p>
     </div>
   </div>
 </section>
-<section class="stil-section" data-type="background" data-speed="2">
+<a name="stil" class="text-anchor"></a>
+<section class="stil-section" name="stil" data-type="background" data-speed="2">
   <div class="section-white-bg"></div>
   <div class="content">
-    <h3>Unser Stil</h3>
+    <h3 class="stilcorrection">Unser Stil</h3>
     <h1>Ein bewährter Prozess</h1>
     <p class="subheading">Um eine Idee in ein starkes Produkt und eine starke Marke zu verwandeln, braucht es Strategie.</p>
-    <div class="info-box first">
+    <div class="stil-info-box first">
       <div class="number">1</div>
       <div class="image-container">
         <img src="../images/chess.jpg" />
@@ -122,10 +123,10 @@
       <div class="text-container">
         <h2>Design Strategie</h2>
         <p class="subheading2">Meet &amp; Greet sowie erste Ideensammlung</p>
-        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+        <p class="main-text">Das persönliche Gespräch steht hierbei am Anfang und wird immer maßgeblich für die weiterführende Konzeption sein. Es sollten sowohl analytische Aspekte wie Marktforschung und detaillierte Recherche als auch kreative Ideenfindung immer in Rücksprache mit Ihnen – dem Kunden – stehen.</p>
       </div>
     </div>
-    <div class="info-box">
+    <div class="stil-info-box">
       <div class="number">2</div>
       <div class="image-container">
         <img src="../images/train.jpg" />
@@ -133,10 +134,10 @@
       <div class="text-container">
         <h2>Passion für Details</h2>
         <p class="subheading2">Wir machen uns ans Werk und nehmen Sie mit</p>
-        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+        <p class="main-text">Angetrieben von dem Motto, etwas Schönes zu erschaffen, feilen wir Stunde um Stunde an Ihrem Produkt, damit wir Ihnen immer das Bestmögliche liefern können. Wir legen viel Wert auf Details und versuchen, der Zeit immer einen Schritt voraus zu sein, um mit Ihnen gemeinsam neue Maßstäbe und Trends zu setzen.</p>
       </div>
     </div>
-    <div class="info-box">
+    <div class="stil-info-box">
       <div class="number">3</div>
       <div class="image-container">
         <img src="../images/speaker.jpg" />
@@ -144,44 +145,83 @@
       <div class="text-container">
         <h2>Effektive Resultate</h2>
         <p class="subheading2">Endpräsentation sowie letzte Änderungen</p>
-        <p class="main-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.</p>
+        <p class="main-text">Nach unserer ausgearbeiteten Reinzeichnung und den letzten Detailarbeiten, stellen wir Ihnen das fertige Produkt in einer Endpräsentation vor und geben Ihnen noch ein paar tolle Tipps für die Zukunft mit auf den Weg.</p>
       </div>
     </div>
   </div>
 </section>
-
-<section class="reference-section" data-type="background" data-speed="2">
+<a name="referenz" class="text-anchor"></a>
+<section class="reference-section" name="referenz" data-type="background" data-speed="2">
   <div class="section-white-bg"></div>
   <h3>Referenzen</h3>
   <h1>Eine feine Auswahl</h1>
   <p class="subheading">Dies sind Auszüge von Werken, denen wir Leben einhauchen durften.</p>
 
   <div class="menu">
-    <form>
-      <div class="selectbox">
-        <select class="selectbox-none" name="category">
-          <option>Kategorie wählen</option>
-          <option>Branding</option>
-          <option>Corporate</option>
-          <option>Web</option>
-          <option>Mobile</option>
-          <option>Social Media</option>
-          <option>Print</option>
-          <option>Development</option>
-        </select>
-      </div>
-    </form>
+    <img src="images/logo_1b.png" />
+    <img src="images/logo_2b.png" />
+    <img src="images/logo_3.png" />
+    <img src="images/logo_4.png" />
   </div>
   </div>
   <div class="reference-content">
-    <a data-popup="gs" data-color="rgba(0,222,0,0.85)"><img src="../images/1.jpg" class="reference-image" /></a>
-    <a href="#"><img src="../images/2.jpg" class="reference-image" /></a><br>
-    <a href="#"><img src="../images/3.jpg" class="reference-image" /></a>
-    <a href="#"><img src="../images/5.jpg" class="reference-image" /></a>
+    <div class="reference-link-container">
+      <a>
+        <img src="../images/1_tgs.jpg" class="reference-image" />
+      </a>
+      <div class="reference-link-hover">
+        
+      </div>
+      <div class="reference-link-hover-content" data-popup="gs" data-color="rgba(0,0,0,0.85)">
+        <h3>The Gentleman Studio</h3>
+        <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive User Interface Web &amp; Mobile <br>Print - Social Media</p>
+        <div class="show-link">show <i class="ico">&#xe604;</i></div>
+      </div>
+    </div>
+    <div class="reference-link-container">
+      <a>
+        <img src="../images/2_hc.jpg" class="reference-image" />
+      </a>
+      <div class="reference-link-hover">
+        
+      </div>
+      <div class="reference-link-hover-content" data-popup="none" data-color="rgba(0,0,0,0.85)">
+        <h3>The Holy Crew</h3>
+        <p>Konzeption &amp; Design von Branding - Corporate Identity &amp; Design - Print - Social Media</p>
+        <div class="show-link">coming soon</div>
+      </div>
+    </div>
+    <br>
+    <div class="reference-link-container">
+      <a>
+        <img src="../images/3_b2w.jpg" class="reference-image" />
+      </a>
+      <div class="reference-link-hover">
+        
+      </div>
+      <div class="reference-link-hover-content tiny" data-popup="none" data-color="rgba(0,222,0,0.85)">
+        <h3>bet2win</h3>
+        <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive UI Web &amp; Mobil - Development</p>
+        <div class="show-link">coming soon</div>
+      </div>
+    </div>
+    <div class="reference-link-container">
+      <a>
+        <img src="../images/4_blvd.jpg" class="reference-image" />
+      </a>
+      <div class="reference-link-hover">
+        
+      </div>
+      <div class="reference-link-hover-content" data-popup="none" data-color="rgba(0,222,0,0.85)">
+        <h3>Beloved</h3>
+        <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive User Interface Web &amp; Mobil<br>E-Commerce</p>
+        <div class="show-link">coming soon</div>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="studio-section" data-type="background" data-speed="2">
+<a name="studio" class="text-anchor"></a>
+<section class="studio-section" name="studio" data-type="background" data-speed="2">
   <div class="section-white-bg"></div>
   <h3>Das Studio</h3>
     <h1>Die Leidenschaft dazu</h1>
@@ -214,23 +254,23 @@
     <div class="features-box">
       <i class="ico">&#xe601;</i>
       <h3>Wir arbeiten schnell</h3>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+      <p>Sie haben es nicht mit Anfängern zu tun, sondern mit professionellen Grafik Designern & qualifizierten Programmierern, die Ihr Handwerk verstehen.</p>
     </div>
     <div class="features-box">
       <i class="ico">&#xe602;</i>
       <h3>Wir haben ein Auge für Details</h3>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+      <p>Nur wenn man sich die Zeit für kleine Details nimmt, ist es auch möglich, wirklich Großartiges zu erschaffen. Dann stimmt auch das Gesamtpaket.</p>
     </div>
     <br>
     <div class="features-box">
       <i class="ico">&#xe603;</i>
       <h3>Wir sind kostengünstig</h3>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+      <p>Sie bezahlen keine Marke, sondern ein erstklassiges Produkt. Wir wollen Sie als Kunden über viele Jahre begleiten und somit faire Preise ansetzen.</p>
     </div>
     <div class="features-box">
       <i class="ico">&#xe600;</i>
       <h3>Wir lieben was wir tun</h3>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+      <p>Unsere Gentlemen haben Ihre Leidenschaft zum Beruf gemacht.      Wir lieben Design und sind in vielerlei Hinsicht absolute          Perfektionisten.</p>
     </div>
   </div>
   <div class="social-container">
@@ -252,22 +292,26 @@
       <h2 class="behance">20 Appreciations</h2>
     </div>
   </div>
-
 </section>
-<section class="contact-section" data-type="background" data-speed="2">
+<a name="anfrage" class="text-anchor"></a>
+<section class="contact-menu-section" name="anfrage" data-type="background" data-speed="2">
   <div class="section-white-bg"></div>
   <h3>Anfrage &amp; Kontakt</h3>
     <h1>Wir kontaktieren Sie gerne</h1>
     <p class="subheading">Wenn Sie Wert auf Qualität legen &amp; gerne mit uns gemeinsam an Ihrem neuen Projekt arbeiten möchten!</p>
 
   <div class="menu">
-    <form>
-      <input placeholder="Mail Adresse"></input>
+    <form action="mailto:move.lachine@gmail.com" method="post" enctype="text/plain">
+      <input type="hidden" name="request" value="please contact me via E-Mail"></input>
+      <input name="E-Mail" placeholder="Mail Adresse"></input>
       <div class="button-wrapper">
         <button class="button">absenden</button></div>
     </form>
     <p>Senden Sie uns Ihre E-Mail Adresse &amp; wir melden uns umgehen bei Ihnen.</p>
   </div>
+</section>
+<a name="kontakt" class="text-anchor"></a>
+<section class="contact-section" name="kontakt">
   <div class="contact-content">
     <div class="contact-images">
       <div class="portrait">
@@ -340,17 +384,16 @@
       Tel. +43 150 99 09 776 &#124; <a href="mailto:office@thegentlemanstudio.com">office@thegentlemanstudio.com</a>
     </p>
     <div class="contact-links">
-      <a href="#">Impressum</a> &#124;
-      <a href="#">Datenschutz &amp; AGBs</a> &#124;
-      <a href="#">Presse</a> &#124;
-      <a href="#">Jobs</a> &#124;
-      <a href="#">Mobile</a>
+      <a href="impressum.html">Impressum</a> &#124;
+      <a href="datenschutz.html">Datenschutz &amp; AGBs</a> &#124;
+      <a href="presse.html">Presse</a> &#124;
+      <a href="jobs.html">Jobs</a>
     </div>
   </div>
 </footer>
 
 <script src="components/jquery/jquery.min.js"></script>
-<script src="scripts/app.js"></script>
+<script src="scripts/vendor/waypoints.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="scripts/script.js"></script>
 

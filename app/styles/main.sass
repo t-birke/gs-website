@@ -118,20 +118,31 @@ header
 
   a
     +border-radius(5px)
-    margin: 0 1em
-    padding: 1em
+    margin: 0 2em
+    padding: .5em
     font-family: 'Novecentosanswide'
     font-weight: 400
-    font-size: .7em
+    font-size: .85em
     border: 1px solid transparent
     text-transform: lowercase
 
     &:hover
       border-color: $gs-yellow
 
-    &:active
-      +transition(2s ease-out)
+    &.active
+      +transition(all 0.5s ease)
+      border-color: $gs-yellow
+      background-color: transparent
+
+    &.active-transition
+      +transition(all 0.5s ease)
+      border-color: $gs-yellow
       background-color: $gs-yellow
+
+    &.inactive
+      +transition(all 0.5s ease)
+      border-color: transparent
+      background-color: transparent
 
   a:visited, 
   a:link, 
@@ -150,7 +161,10 @@ h1
 h3
   font-size: 1em
   color: white
-  margin-top: 7em
+  margin-top: 9em
+
+  &.stilcorrection
+    margin-top: 5em
 
 .subheading
   position: relative
@@ -285,14 +299,32 @@ h3
       &:hover
         cursor: pointer
 
+  img
+    width: 100%
+    margin: -3px 0
+    padding: 0
+
+.text-anchor
+  font-size: 0
+
 .service-menu
-  height: 15em
+  height: 44em
   width: 100%
-  background-color: $bg-grey
+  background-color: white
   text-align: center
+
+  .service-menu-background
+    height: 15em
+    width: 100%
+    background-color: $bg-grey
 
   .service-menu-container
     position: relative
+    width: 960px
+    margin: 0 auto
+
+  .service-container
+    vertical-align: top
     width: 960px
     margin: auto
 
@@ -311,6 +343,7 @@ h3
     font-weight: 400
     font-size: 1em
     color: white
+    text-transform: uppercase
 
     &:hover
       cursor: pointer
@@ -323,34 +356,35 @@ h3
       font-size: 2.5em
       margin-bottom: .6em
 
+      &.moveright
+        margin-left: 20px
+
   .arrow
     position: absolute
     top: 13.5em
-    left: 5.5em
+    left: 105px
     height: 0em
     width: 0em
     border-left: 6em solid transparent
     border-right: 6em solid transparent
     border-bottom: 1.5em solid white
 
- 
+.info-box
+  float: left
+  width: 18.75em
+  height: 23.875em
+  border: 1px solid #bababa
+  margin: 2em 0.6em
 
-.service-section
-  height: 29em
-  text-align: center
+  &:first-child
+    margin-left: 0
 
-  .service-container
-
-  .info-box
-    display: inline-block
-    width: 18.75em
-    height: 21.875em
-    border: 1px solid #bababa
-    margin: 2em 0.6em
+  &.last
+    margin-right: 0
 
   h2
     font-size: 1em
-    margin-top: 2em
+    margin-top: 1em
 
   p
     font-size: .75em
@@ -431,7 +465,7 @@ h3
   overflow: hidden
   z-index: -2
 
-  .info-box
+  .stil-info-box
     position: relative
     margin: 2em auto 0 auto
     width: 58.5em
@@ -507,17 +541,21 @@ h3
 
   .menu
     overflow: hidden
-    margin-top: 144px
+    margin-top: 112px
     height: 12em
     width: 100%
     background-color: $bg-grey
     text-align: center
 
+    img
+      display: inline-block
+      margin: 2em
+
     .selectbox
       +border-radius(3px)
       +appearance(none)
       position: relative
-      margin: 6em auto
+      margin: 4em auto
       border: 1px solid $gs-yellow
       width: 9em
       padding-left: 1em
@@ -525,13 +563,14 @@ h3
       height: 2em
       line-height: 1.8em
       text-align: center
+      font-size: 1.2em
 
       &:after
         content: "\25BC"
         position: absolute
         top: .4em
         right: 1.6em
-        font-size: .5em
+        font-size: .4em
         color: $gs-yellow
 
     .selectbox select
@@ -541,6 +580,7 @@ h3
       box-shadow: none
       background: transparent
       background-image: none
+      font-size: .8em
 
     .selectbox-none
       +appearance(none)
@@ -550,8 +590,79 @@ h3
     margin: 3em
     text-align: center
 
-    .reference-image
+    .reference-link-container
+      display: inline-block
+      position: relative
       margin: .5em 1em
+
+      &:hover
+        cursor: pointer
+        .reference-link-hover
+          display: block
+        .reference-link-hover-content
+          display: block
+
+      .reference-link-hover
+        display: none
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 6px
+        left: 0
+        padding: 20px
+        background-color: rgba(48,48,48,0.9)
+        color: white
+
+      .reference-link-hover-content
+        display: none
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 6px
+        left: 0
+        padding: 50px 12px 12px 12px
+        color: white
+
+        &.tiny
+          padding: 24px 12px 12px 12px 
+
+    h3
+      position: relative
+      font-size: 1.875em
+      margin: 0
+      font-family: "Open Sans"
+      padding: 0 20px
+      line-height: 1.1em
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: -20px
+        left: 33%
+        width: 33%
+        height: 1px
+        background-color: white
+
+    p
+      font-size: .75em
+      text-align: center
+      color: white
+      margin-top: 30px
+      padding: 0 20px
+
+    .show-link
+      margin-top: .5em
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: 1em
+      line-height: 2em
+
+      .ico
+        font-size: .8em
+
+    a
+      position: relative
+      display: inline-block
 
 .studio-section
   position: relative
@@ -563,7 +674,7 @@ h3
   .menu
     position: relative
     overflow: visible
-    margin-top: 144px
+    margin-top: 112px
     height: 12em
     width: 100%
     background-color: $bg-grey
@@ -689,16 +800,16 @@ h3
       line-height: 4em
       text-transform: lowercase
 
-.contact-section
+.contact-menu-section
   position: relative
-  height: 72em
+  height: 40em
   background: url('../images/header.jpg') no-repeat center -450px
   overflow: hidden
   z-index: -2
 
   .menu
     overflow: hidden
-    margin-top: 144px
+    margin-top: 112px
     height: 12em
     width: 100%
     background-color: $bg-grey
@@ -727,8 +838,13 @@ h3
 
     .button-wrapper
       display: inline-block
-      margin-left: -8px
+      margin-left: -5px
 
+      .button
+        +border-radius(0 5px 5px 0)
+
+.contact-section
+  height: 32em
   .contact-content
     width: 666px
     margin: auto
@@ -904,8 +1020,8 @@ footer
       line-height: 1.5em
 
     .description
-      margin: 2.8em 0 0 5.7em
-      width: 39.3em
+      margin: 2.6em 0 0 5.7em
+      width: 42em
       font-size: .7em
       color: #999
       line-height: 1.5em
@@ -977,3 +1093,215 @@ footer
       a:link
         color: white
         text-decoration: underline
+
+// other sites stiles
+.other
+  .content
+    width: 960px
+    margin: auto
+    overflow: hidden
+
+  .backlink
+    clear: both
+    float: left
+    height: 180px
+    padding: 170px 0 0 0
+    width: 340px
+
+    a
+      color: #b3b190
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: .75em
+
+  .logo
+    float: left
+    height: 220px
+    width: 246px
+    padding-top: 60px
+    text-align: center
+
+  .address
+    clear: both
+
+    h2
+      position: relative
+      margin: 0
+      padding: 0
+      font-size: 1.25em
+      color: $bg-grey
+      text-align: left
+
+      &:before
+        content: ""
+        position: absolute
+        bottom: -15px
+        left: 0
+        width: 300px
+        height: 1px
+        background-color: $gs-yellow
+    p
+      padding: 2em 0 3em 0
+      font-size: .75em
+      line-height: 1.6em
+      color: $bg-grey
+      width: 415px
+
+      a
+        color: $gs-yellow
+        font-size: 1em
+
+    a
+      font-size: .75em
+      text-decoration: underline
+
+  .bottom
+    padding-top: 50px
+
+  a
+    padding-top: 3em
+    font-size: .75em
+    text-decoration: underline
+
+.imprint
+
+  &.header
+    height: 706px
+    width: 100%
+    background: url('../images/other/header_impressum.jpg') no-repeat center
+
+  &.legal
+    width: 680px
+    margin: 0 auto
+    padding: 0 280px 0 0
+    text-align: left
+
+    h2
+      margin: 2em 0
+      font-size: 1.25em
+      text-align: left
+
+    p
+      font-size: .75em
+      color: $bg-grey
+
+    .link-container
+      float: left
+      margin-top: 3em
+
+.jobs
+
+  &.header
+    height: 706px
+    width: 100%
+    background: url('../images/other/header_jobs.jpg') no-repeat center
+
+    .min-margin
+      margin: 1
+      padding: 0
+
+    .min-margin-bottom
+      margin-bottom: 1em
+      padding-bottom: 0
+
+  .job-card
+    position: relative
+    float: left
+    width: 140px
+    height: 140px
+    padding: 10px
+    border: 1px solid #bababa
+    margin: 5px
+
+    &:hover
+      &:after
+        content: "\e604"
+        position: absolute
+        top: 1.5em
+        left: 4em
+        color: $bg-grey
+        font-size: 1.5em
+        font-family: "IconFont"
+
+    .job-title
+      display: block
+      margin: 4em auto 2em auto
+      font-size: 1em
+      color: $bg-grey
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      text-align: center
+
+    .job-short-desc
+      display: block
+      margin: 1em auto
+      font-size: 1em
+      color: $bg-grey
+      text-align: center
+      line-height: 1.6em
+
+  &.emo
+    padding-top: 60px
+
+  .job-description
+    clear: both
+    width: 960px
+    margin: 0
+    padding: 0
+    font-size: .75em
+
+    p
+
+    h2
+      margin: 3em 0 0 0
+      padding: 0
+      font-size: 1.5em
+      color: $bg-grey
+      text-align: left
+
+    h3
+      position: relative
+      margin: 1em 0 0 0
+      padding: 0
+      font-size: 1.25em
+      color: $bg-grey
+      text-align: left
+
+    .job-requirements
+      width: 910px
+      padding: 20px
+      border: 1px solid $bg-grey
+      margin: 4em 0
+
+  .link-container
+    margin-top: 5em
+
+.presse
+  text-align: left
+
+  &.header
+    height: 706px
+    width: 100%
+    background: url('../images/other/header_presse.jpg') no-repeat center
+
+  .press-images
+    width: 750px
+    vertical-align: middle
+
+    img
+      display: inline-block
+      margin: 2.6em
+
+  .button
+    float: left
+
+  ul
+    clear: both
+    float: left
+    font-size: .75em
+    padding: 1em
+
+  .link-container
+    clear: both
+    margin-top: 5em !important
+    float: left
