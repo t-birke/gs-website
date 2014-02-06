@@ -109,7 +109,7 @@ module.exports = function (grunt) {
           dest: '.tmp/scripts',
           ext: '.js'
         }]
-      },
+      }
     },
     compass: {
       options: {
@@ -241,11 +241,9 @@ module.exports = function (grunt) {
             '.htaccess',
             'components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'upload/*',
-            'fb/*',
             'scripts/vendor/**/*',
-            'games/**/*',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'popups/*'
           ]
         }]
       }
@@ -267,7 +265,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'jshint',
+    //'jshint',
     //'test',
     'coffee',
     'compass:dist',

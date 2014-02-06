@@ -8,7 +8,8 @@
   <title>Gentleman Studio Berlin</title>
   <meta name="keywords" content="advertising, agency, berlin, creative, website, design, corporate">
   <meta name="description" content="Gentleman Studio ist die Kreativ Agentur aus Berlin. Wir entwerfen Ihre komplette Corporate Identity inklusive Logo, Drucksachen, Website.">
-  <meta name="viewport" content="width=device-width"> 
+  <meta name="viewport" content="width=device-width">
+  <meta name="google-site-verification" content="Ysebt40-i-6WN5UtqfpCGxPd2svSvuizgror2yU6YpM" />
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
@@ -18,22 +19,22 @@
 <div id="popup-background" class="hidden"></div>
 <header>
   <div class="menu">
-    <a href="#service">Service</a>
-    <a href="#stil">Unser Stil</a>
-    <a class="push" href="#referenz">Referenzen</a>
-    <a href="#studio">Das Studio</a>
-    <a href="#anfrage">Anfrage</a>
-    <a href="#kontakt">Kontakt</a>
+    <a data-target="service">Service</a>
+    <a data-target="stil">Unser Stil</a>
+    <a data-target="referenz" class="push">Referenzen</a>
+    <a data-target="studio">Das Studio</a>
+    <a data-target="anfrage">Anfrage</a>
+    <a data-target="kontakt">Kontakt</a>
   </div>
   <div class="logo-hat" data-type="hat" data-speed="2"></div>
 </header>
-
 <section class="logo-section">
   <div class="logo-container" data-type="logo" data-speed="2">
     <div class="logo-left"></div>
     <div class="logo-center">
       <div class="logo-logo"></div>
       <div class="logo-bottom">
+        <a data-target="service"><img src="/images/arrow_down.png" /></a>
       </div>
     </div>
     <div class="logo-right"></div>
@@ -76,34 +77,34 @@
   <div class="service-container hidden" data-content="ui">
     <div class="info-box">
       <img src="../images/branding_design.jpg" />
-      <h2>Branding/CI Konzept</h2>
+      <h2>Logo- &amp; Corporate Design</h2>
       <p>Ein Logo ist nicht nur ein Zeichen, sondern viel mehr Ihr Aushängeschild für die nächsten Jahre! Wir entwickeln Logos mit großer Aussagekraft und hohem Wiedererkennungswert.</p>
     </div>
     <div class="info-box">
       <img src="../images/ui_design.jpg" />
-      <h2>UI Konzeption</h2>
+      <h2>Interface Design</h2>
       <p>Der erste Eindruck zählt! Wir kreieren aus Ihrem digitalen Auftritt einen umsatzstarken Verkäufer, der Ihre Kunden schnell zum gewünschten Ziel führt. Wir achten dabei stets auf zielorientierte Usability, starke User Experience &amp; klare Strukturen.</p>
     </div>
     <div class="info-box">
       <img src="../images/print_design.jpg" />
-      <h2>Social &amp; Print Konzepte</h2>
+      <h2>Print Design</h2>
       <p>Angefangen von einer edlen Unternehmensbroschüre, über eine moderne Speisekarte, bis hin zu Veranstaltungsplakaten garantieren wir qualitativ hochwertiges und emotionales Design. Unsere Produkte lassen Emotionen hochleben und bleiben langfristig im Gedächtnis erhalten.</p>
     </div>
   </div>
   <div class="service-container hidden" data-content="print">
     <div class="info-box">
       <img src="../images/website_entwicklung.jpg" />
-      <h2>Branding/CI Konzept</h2>
+      <h2>Website &amp; App development</h2>
       <p>Alles aus einer Hand! Wir hauchen dem Design Leben ein! Vom einfachen Webauftritt bis hin zum komplexen Shopsystem setzen wir auf viel Performance und leicht bedienbare Lösungen.</p>
     </div>
     <div class="info-box">
       <img src="../images/app_entwicklung.jpg" />
-      <h2>UI Konzeption</h2>
+      <h2>E-Commerce &amp; Wordpress</h2>
       <p>Mit gezielten Animationen und kurzen Wegen durch den Bestellprozess machen wir Online-Einkäufe zum Vergnügen. Wir stellen eine Oberfläche zur Verfügung mit dieser Sie all Ihren Content verwalten könnten – oder wir übernehmen das für Sie.</p>
     </div>
     <div class="info-box">
       <img src="../images/wordpress_entwicklung.jpg" />
-      <h2>Social &amp; Print Konzepte</h2>
+      <h2>Mobile App Development</h2>
       <p>Eine mobile Website hat heutzutage eine ähnliche Priorität wie eine Webseite. Wir entwickeln für Sie responsive Designs, Web-,iOS sowie Android Apps und legen dabei besonders viel Wert auf die Performance und Stabilität der Applikation.</p>
     </div>
   </div>
@@ -165,7 +166,7 @@
   </div>
   </div>
   <div class="reference-content">
-    <div class="reference-link-container">
+    <div class="reference-link-container left">
       <a>
         <img src="../images/1_tgs.jpg" class="reference-image" />
       </a>
@@ -173,12 +174,12 @@
         
       </div>
       <div class="reference-link-hover-content" data-popup="gs" data-color="rgba(0,0,0,0.85)">
-        <h3>The Gentleman Studio</h3>
+        <div class="ref-heading">The Gentleman Studio</div>
         <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive User Interface Web &amp; Mobile <br>Print - Social Media</p>
         <div class="show-link">show <i class="ico">&#xe604;</i></div>
       </div>
     </div>
-    <div class="reference-link-container">
+    <div class="reference-link-container right">
       <a>
         <img src="../images/2_hc.jpg" class="reference-image" />
       </a>
@@ -186,13 +187,13 @@
         
       </div>
       <div class="reference-link-hover-content" data-popup="none" data-color="rgba(0,0,0,0.85)">
-        <h3>The Holy Crew</h3>
+        <div class="ref-heading">The Holy Crew</div>
         <p>Konzeption &amp; Design von Branding - Corporate Identity &amp; Design - Print - Social Media</p>
         <div class="show-link">coming soon</div>
       </div>
     </div>
     <br>
-    <div class="reference-link-container">
+    <div class="reference-link-container left">
       <a>
         <img src="../images/3_b2w.jpg" class="reference-image" />
       </a>
@@ -200,12 +201,12 @@
         
       </div>
       <div class="reference-link-hover-content tiny" data-popup="none" data-color="rgba(0,222,0,0.85)">
-        <h3>bet2win</h3>
+        <div class="ref-heading">bet2win</div>
         <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive UI Web &amp; Mobil - Development</p>
         <div class="show-link">coming soon</div>
       </div>
     </div>
-    <div class="reference-link-container">
+    <div class="reference-link-container right">
       <a>
         <img src="../images/4_blvd.jpg" class="reference-image" />
       </a>
@@ -213,7 +214,7 @@
         
       </div>
       <div class="reference-link-hover-content" data-popup="none" data-color="rgba(0,222,0,0.85)">
-        <h3>Beloved</h3>
+        <div class="ref-heading">Beloved</div>
         <p>Konzeption &amp; Design von Branding - Corporate Identity - responsive User Interface Web &amp; Mobil<br>E-Commerce</p>
         <div class="show-link">coming soon</div>
       </div>
@@ -276,20 +277,11 @@
   <div class="social-container">
     <div class="social-box">
       <i class="ico facebook">&#xe60a;</i>
-      <h2 class="facebook">132 gefällt mir</h2>
-    </div>
-    <div class="social-box">
-      <i class="ico instagram">&#xe60b;</i>
-      <h2 class="instagram">64 follower</h2>
-    </div>
-    <br>
-    <div class="social-box">
-      <i class="ico dribble">&#xe60c;</i>
-      <h2 class="dribble">243 Follower</h2>
+      <a href="https://www.facebook.com/thegentlemanstudio" target="_blank"><h2 class="facebook">zur Fanpage</h2></a>
     </div>
     <div class="social-box">
       <i class="ico behance">&#xe60f;</i>
-      <h2 class="behance">20 Appreciations</h2>
+      <a href="https://www.behance.net/thegentlemanstudio" target="_blank"><h2 class="behance">zum Portfolio</h2></a>
     </div>
   </div>
 </section>
@@ -318,23 +310,22 @@
         <img src="../images/ansprechpartner.png" alt="The Gentleman Studio CEO und Geschäftsführer Michael Bogner" class="reference-image" />
       </div>
       <div class="contact-social">
-        <a href="#" class="facebook"><i class="ico">&#xe60a;</i></a>
-        <a href="#" class="linkedin"><i class="ico">&#xe60d;</i></a>
-        <a href="#" class="pinterest"><i class="ico">&#xe60e;</i></a>
+        <a href="https://www.xing.com/profile/Michael_Bogner9" target="_blank" class="xing"><i class="ico">&#xe611;</i></a>
+        <a href="http://de.linkedin.com/pub/michael-bogner/6b/bb9/2a3" target="_blank" class="linkedin"><i class="ico">&#xe60d;</i></a>
       </div>
     </div>
     <div class="contact-text">
       <h2>Ihr persönlicher Ansprechpartner</h2>
-      <span class="name">Michael Bogner, CEO</span>
+      <span class="name">Michael Bogner, Geschäftsführer</span>
       <p>
-        Tel. +49 150 99 09 776<br>
-        michael@thegentlemanstudio.com<br><br>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo.
+        Tel. +49 170 99 09 776<br>
+        <a href="mailto:michael@gentleman-studio.de">michael@gentleman-studio.de</a><br><br>
+        Sie erreichen mich von Montag bis Sonntag rund um die Uhr. Ich freue mich auf Ihren Anruf oder Ihre Mail. Sie haben noch nie mit uns zusammengearbeitet? Wir erstellen Inen ein Starter Angebot mit den bestmöglichen Konditionen!
       </p>
     </div>
     <div class="contact-rest">
       Schreiben Sie uns direkt eine E-Mail mit Ihren Vorstellungen &amp; Wünschen!<br>
-      <button class="button">E-Mail schreiben</button>
+      <a href="mailto:michael@gentleman-studio.de" class="button">E-Mail schreiben</a>
     </div>
   </div>
 </section>
@@ -352,11 +343,7 @@
         Natürlich würde es uns freuen, wenn Sie uns Ihren Freunden empfehlen würden
       </p>
       <div class="refer-social">
-        Teilen auf
-          <a href="#"><i class="ico social facebook">&#xe60a;</i></a>
-          <a href="#"><i class="ico social dribble">&#xe60c;</i></a>
-          <a href="#"><i class="ico social instagram">&#xe60b;</i></a>
-          <a href="#"><i class="ico social behance">&#xe60f;</i></a>
+        <div class="fb-like" data-href="https://www.facebook.com/thegentlemanstudio" data-width="250px" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
       </div>
       <button class="button">per mail empfehlen</button>
     </div>
@@ -377,15 +364,14 @@
   <div class="contact">
     <h2>Kontaktmöglichkeiten</h2>
     <p class="address">
+      The Gentleman Studio GmbH<br>
       Potsdamer Str. 168<br>
       10783 Berlin<br>
-      HRB 123456 &#124; Amtsgericht Charlottenburg<br>
       <br>
-      Tel. +43 150 99 09 776 &#124; <a href="mailto:office@thegentlemanstudio.com">office@thegentlemanstudio.com</a>
+      Tel. +49 170 99 09 776 &#124; <a href="mailto:office@thegentlemanstudio.com">office@gentleman-studio.de</a>
     </p>
     <div class="contact-links">
       <a href="impressum.html">Impressum</a> &#124;
-      <a href="datenschutz.html">Datenschutz &amp; AGBs</a> &#124;
       <a href="presse.html">Presse</a> &#124;
       <a href="jobs.html">Jobs</a>
     </div>
@@ -395,7 +381,27 @@
 <script src="components/jquery/jquery.min.js"></script>
 <script src="scripts/vendor/waypoints.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<div id="fb-root"></div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47810507-1', 'gentleman-studio.de');
+  ga('send', 'pageview');
+
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1&appId=368441249966338";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- build:js scripts/scripts.js -->
 <script src="scripts/script.js"></script>
+<!-- endbuild -->
 
 </body>
 </html>

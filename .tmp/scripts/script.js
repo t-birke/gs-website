@@ -20,10 +20,22 @@
   google.maps.event.addDomListener(window, "load", initialize);
 
   $(document).ready(function() {
-    var $window, Backward, Forward, arrowOffset, closePopup, currentQuote, highlightMenuItem, next, popupBackground, prev, quoteLength, scrollToAnchor, showPopup, t;
+    var $window, Backward, Forward, arrowOffset, closePopup, currentQuote, highlightMenuItem, next, popupBackground, prev, quoteLength, resizeLogo, scrollToAnchor, showPopup, t;
     $window = $(window);
+    resizeLogo = function() {
+      var leftPos;
+      leftPos = ($window.width() - $(".logo-container").width()) / 2;
+      if ($window.width() < 960) {
+        leftPos = 0;
+      }
+      return $(".logo-container").css("left", leftPos + "px");
+    };
+    resizeLogo();
+    $window.resize(function(e) {
+      return resizeLogo();
+    });
     $("div[data-type='hat']").css({
-      top: ($window.height() * 0.3) + "px"
+      top: ($window.height() * 0.27) + "px"
     });
     popupBackground = $("#popup-background");
     showPopup = function(content, color) {
@@ -72,26 +84,26 @@
     scrollToAnchor = function(aid) {
       var aTag;
       aTag = $("a[name='" + aid + "']");
-      return $('html').animate({
-        scrollTop: aTag.offset().top
-      }, 2000);
+      return $('html, body').animate({
+        scrollTop: aTag.offset().top - 59
+      }, 1000);
     };
-    $(".menu a").click(function() {
+    $(".menu a, .logo-bottom a").click(function() {
       var href;
-      href = $(this).attr("href").replace('#', '');
+      href = $(this).data("target");
       return scrollToAnchor(href);
     });
     $("section").waypoint({
       handler: function(direction) {
         var item;
         if (direction === "down") {
-          return highlightMenuItem($(".menu a[href = '#" + $(this).attr("name") + "']"));
+          return highlightMenuItem($(".menu a[data-target = '" + $(this).attr("name") + "']"));
         } else {
           item = $(this).prev();
           if (item.attr("name") === $(this).attr("name")) {
             item = item.prev();
           }
-          return highlightMenuItem($(".menu a[href = '#" + item.attr("name") + "']"));
+          return highlightMenuItem($(".menu a[data-target = '" + item.attr("name") + "']"));
         }
       },
       offset: "60px"
@@ -156,6 +168,9 @@
         var coords, size, yPos;
         if ($bgobj.data("type") === "background") {
           yPos = (($window.scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200;
+          if (yPos < -450) {
+            yPos = -450;
+          }
           coords = "50% " + yPos + "px";
           $bgobj.css({
             backgroundPosition: coords
@@ -168,7 +183,7 @@
           });
         }
         if ($bgobj.data("type") === "hat") {
-          yPos = $window.height() * 0.3 - $window.scrollTop() / 2;
+          yPos = $window.height() * 0.27 - $window.scrollTop() / 2;
           if (yPos < 9.5) {
             yPos = 12;
           }

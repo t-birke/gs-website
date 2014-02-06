@@ -16,8 +16,21 @@ $(document).ready ->
   # Cache the Window object
   $window = $(window)
   
+  # position logo container
+  resizeLogo = ->
+    leftPos = (($window.width() - $(".logo-container").width()) / 2)
+    if $window.width() < 960
+      leftPos = 0
+    $(".logo-container").css("left",leftPos + "px")
+
+
+  resizeLogo()
+  # also on resize
+  $window.resize (e) ->
+    resizeLogo()
+
   # Position hat
-  $("div[data-type='hat']").css top: ($window.height() * 0.3) + "px"
+  $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px"
 
   # Reference popup
   popupBackground = $("#popup-background")
@@ -70,24 +83,24 @@ $(document).ready ->
   # gracefull scrolling
   scrollToAnchor = (aid) ->
     aTag = $("a[name='" + aid + "']")
-    $('html').animate
-      scrollTop: aTag.offset().top
-      ,2000
+    $('html, body').animate
+      scrollTop: aTag.offset().top - 59
+      ,1000
   
-  $(".menu a").click ->
-    href = $(this).attr("href").replace('#', '')
+  $(".menu a, .logo-bottom a").click ->
+    href = $(this).data("target")
     scrollToAnchor href
 
   # detect section and highlight menu item
   $("section").waypoint
     handler: (direction) ->
       if direction is "down"
-        highlightMenuItem $(".menu a[href = '#" + $(this).attr("name") + "']")
+        highlightMenuItem $(".menu a[data-target = '" + $(this).attr("name") + "']")
       else
         item = $(this).prev()
         if item.attr("name") is $(this).attr("name")
           item = item.prev()
-        highlightMenuItem $(".menu a[href = '#" + item.attr("name") + "']")
+        highlightMenuItem $(".menu a[data-target = '" + item.attr("name") + "']")
     offset: "60px"
   
 
@@ -151,13 +164,15 @@ $(document).ready ->
       # the yPos is a negative value because we're scrolling it UP!                
       if $bgobj.data("type") is "background"
         yPos = (($window.scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200
+        if yPos < -450
+          yPos = -450
         coords = "50% " + yPos + "px"
         $bgobj.css backgroundPosition: coords
       if $bgobj.data("type") is "logo"
         yPos = (($window.scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px"
         $bgobj.css top: (yPos)
       if $bgobj.data("type") is "hat"
-        yPos = $window.height() * 0.3 - $window.scrollTop() / 2
+        yPos = $window.height() * 0.27 - $window.scrollTop() / 2
         yPos = 12  if yPos < 9.5
         
         # Put together our final background position
