@@ -20,22 +20,37 @@
   google.maps.event.addDomListener(window, "load", initialize);
 
   $(document).ready(function() {
-    var $window, Backward, Forward, arrowOffset, closePopup, currentQuote, highlightMenuItem, next, popupBackground, prev, quoteLength, resizeLogo, scrollToAnchor, showPopup, t;
+    var $window, Backward, Forward, arrowOffset, closePopup, currentQuote, highlightMenuItem, next, offsetArrow, popupBackground, prev, quoteLength, resizeLogo, scrollToAnchor, showAnimation, showPopup, t, toggleMenu;
     $window = $(window);
+    showAnimation = false;
+    if ($window.width() < 960) {
+      showAnimation = false;
+    } else {
+      showAnimation = true;
+    }
     resizeLogo = function() {
       var leftPos;
       leftPos = ($window.width() - $(".logo-container").width()) / 2;
-      if ($window.width() < 960) {
-        leftPos = 0;
-      }
       return $(".logo-container").css("left", leftPos + "px");
     };
     resizeLogo();
-    $window.resize(function(e) {
-      return resizeLogo();
-    });
+    $window.resize($.throttle(250, function(e) {
+      resizeLogo();
+      if ($window.width() < 960) {
+        return showAnimation = false;
+      } else {
+        return showAnimation = true;
+      }
+    }));
     $("div[data-type='hat']").css({
       top: ($window.height() * 0.27) + "px"
+    });
+    offsetArrow = 40;
+    if ($window.width() < 768) {
+      offsetArrow = 20;
+    }
+    $(".arrow").css({
+      left: (($(".service-menu-container a:first")[0].offsetLeft) - offsetArrow) + "px"
     });
     popupBackground = $("#popup-background");
     showPopup = function(content, color) {
@@ -79,7 +94,9 @@
       });
     };
     $(".menu a").click(function() {
-      return highlightMenuItem($(this));
+      if (showAnimation) {
+        return highlightMenuItem($(this));
+      }
     });
     scrollToAnchor = function(aid) {
       var aTag;
@@ -88,10 +105,23 @@
         scrollTop: aTag.offset().top - 59
       }, 1000);
     };
-    $(".menu a, .logo-bottom a").click(function() {
+    $(".menu a, .mobile-menu a, .logo-bottom a").click(function() {
       var href;
       href = $(this).data("target");
       return scrollToAnchor(href);
+    });
+    toggleMenu = function(item) {
+      if (item.hasClass("show")) {
+        return item.removeClass("show");
+      } else {
+        return item.addClass("show");
+      }
+    };
+    $(".mobile-menu li.first").click(function() {
+      return toggleMenu($(this).parent());
+    });
+    $(".mobile-menu a").click(function() {
+      return toggleMenu($(this).parent().parent());
     });
     $("section").waypoint({
       handler: function(direction) {
@@ -108,17 +138,17 @@
       },
       offset: "60px"
     });
-    arrowOffset = ($(".service-menu-container a:first")[0].offsetLeft) - 40;
+    arrowOffset = ($(".service-menu-container a:first")[0].offsetLeft) - offsetArrow;
     $(".service-menu-container a").mouseover(function() {
       return $(".arrow").stop().animate({
-        left: (this.offsetLeft - 40) + "px"
+        left: (this.offsetLeft - offsetArrow) + "px"
       }, 500);
     }).mouseout(function() {
       return $(".arrow").stop().animate({
         left: arrowOffset + "px"
       }, 500);
     }).click(function() {
-      arrowOffset = this.offsetLeft - 40;
+      arrowOffset = this.offsetLeft - offsetArrow;
       $(".service-container").addClass("hidden");
       $(".service-menu-container a").removeClass("active");
       $(".service-container[data-content='" + $(this).data("target") + "']").removeClass("hidden");
@@ -161,43 +191,51 @@
       return Backward();
     });
     t = $("a[name='stil']").offset().top;
-    return $("div[data-type='logo'], section[data-type='background'], div[data-type='hat']").each(function() {
-      var $bgobj;
-      $bgobj = $(this);
-      return $(window).scroll(function() {
-        var coords, size, yPos;
-        if ($bgobj.data("type") === "background") {
-          yPos = (($window.scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200;
-          if (yPos < -450) {
-            yPos = -450;
+    if (showAnimation) {
+      $("div[data-type='logo'], section[data-type='background'], div[data-type='hat']").each(function() {
+        var $bgobj;
+        $bgobj = $(this);
+        return $window.scroll(function() {
+          var coords, size, yPos;
+          if ($bgobj.data("type") === "background") {
+            yPos = (($(this).scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200;
+            if (yPos < -450) {
+              yPos = -450;
+            }
+            coords = "50% " + yPos + "px";
+            $bgobj.css({
+              backgroundPosition: coords
+            });
           }
-          coords = "50% " + yPos + "px";
-          $bgobj.css({
-            backgroundPosition: coords
-          });
-        }
-        if ($bgobj.data("type") === "logo") {
-          yPos = (($window.scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px";
-          $bgobj.css({
-            top: yPos
-          });
-        }
-        if ($bgobj.data("type") === "hat") {
-          yPos = $window.height() * 0.27 - $window.scrollTop() / 2;
-          if (yPos < 9.5) {
-            yPos = 12;
+          if ($bgobj.data("type") === "logo") {
+            yPos = (($(this).scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px";
+            $bgobj.css({
+              top: yPos
+            });
           }
-          coords = yPos + "px";
-          size = ((yPos / $window.height() * 150) + 50) + "%";
-          $bgobj.css({
-            top: coords
-          });
-          return $bgobj.css({
-            height: size
-          });
-        }
+          if ($bgobj.data("type") === "hat") {
+            yPos = $(window).height() * 0.27 - $(this).scrollTop() / 2;
+            if (yPos < 9.5) {
+              yPos = 12;
+            }
+            coords = yPos + "px";
+            size = ((yPos / $(this).height() * 150) + 50) + "%";
+            $bgobj.css({
+              top: coords
+            });
+            return $bgobj.css({
+              height: size
+            });
+          }
+        });
       });
-    });
+    }
+    if (!showAnimation && $window.width() < 650) {
+      return $(".service-container").draggable({
+        axis: "x",
+        containment: [-650 + $window.width(), 0, 0, 250]
+      });
+    }
   });
 
   document.createElement("section");

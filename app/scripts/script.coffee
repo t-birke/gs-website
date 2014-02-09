@@ -15,23 +15,36 @@ $(document).ready ->
   
   # Cache the Window object
   $window = $(window)
+
+  # variable if animations should be shown
+  showAnimation = false
+  if $window.width() < 960
+    showAnimation = false
+  else
+    showAnimation = true
   
   # position logo container
   resizeLogo = ->
     leftPos = (($window.width() - $(".logo-container").width()) / 2)
-    if $window.width() < 960
-      leftPos = 0
     $(".logo-container").css("left",leftPos + "px")
 
 
   resizeLogo()
   # also on resize
-  $window.resize (e) ->
+  $window.resize $.throttle 250, (e) ->
     resizeLogo()
+    if $window.width() < 960
+      showAnimation = false
+    else
+      showAnimation = true
 
   # Position hat
   $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px"
-
+  # Position Arrow
+  offsetArrow = 40
+  if $window.width() < 768
+    offsetArrow = 20
+  $(".arrow").css left: (($(".service-menu-container a:first")[0].offsetLeft) - offsetArrow) + "px"
   # Reference popup
   popupBackground = $("#popup-background")
   showPopup = (content, color) ->
@@ -78,7 +91,8 @@ $(document).ready ->
   
   # animation of top menu items
   $(".menu a").click ->
-    highlightMenuItem $(this)
+    if showAnimation
+      highlightMenuItem $(this)
 
   # gracefull scrolling
   scrollToAnchor = (aid) ->
@@ -87,9 +101,21 @@ $(document).ready ->
       scrollTop: aTag.offset().top - 59
       ,1000
   
-  $(".menu a, .logo-bottom a").click ->
+  $(".menu a, .mobile-menu a, .logo-bottom a").click ->
     href = $(this).data("target")
     scrollToAnchor href
+
+  toggleMenu = (item) ->
+    if item.hasClass "show"
+      item.removeClass "show"
+    else
+      item.addClass "show"
+    
+  $(".mobile-menu li.first").click ->
+    toggleMenu($(this).parent())
+
+  $(".mobile-menu a").click ->
+    toggleMenu($(this).parent().parent())
 
   # detect section and highlight menu item
   $("section").waypoint
@@ -105,17 +131,17 @@ $(document).ready ->
   
 
   # animation for arrow in service menu
-  arrowOffset = ($(".service-menu-container a:first")[0].offsetLeft) - 40
+  arrowOffset = ($(".service-menu-container a:first")[0].offsetLeft) - offsetArrow
   $(".service-menu-container a").mouseover(->
     $(".arrow").stop().animate
-      left: (@offsetLeft - 40) + "px"
+      left: (@offsetLeft - offsetArrow) + "px"
     , 500
   ).mouseout(->
     $(".arrow").stop().animate
       left: arrowOffset + "px"
     , 500
   ).click ->
-    arrowOffset = @offsetLeft - 40
+    arrowOffset = @offsetLeft - offsetArrow
     #hide all content elements
     $(".service-container").addClass "hidden"
     $(".service-menu-container a").removeClass "active"
@@ -156,34 +182,38 @@ $(document).ready ->
   
   #Parallax Effect
   t = $("a[name='stil']").offset().top
-  $("div[data-type='logo'], section[data-type='background'], div[data-type='hat']").each ->
-    $bgobj = $(this) # assigning the object
-    $(window).scroll ->
+  if showAnimation
+    $("div[data-type='logo'], section[data-type='background'], div[data-type='hat']").each ->
+      $bgobj = $(this) # assigning the object
+
+      $window.scroll ->
       
-      # Scroll the background at var speed
-      # the yPos is a negative value because we're scrolling it UP!                
-      if $bgobj.data("type") is "background"
-        yPos = (($window.scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200
-        if yPos < -450
-          yPos = -450
-        coords = "50% " + yPos + "px"
-        $bgobj.css backgroundPosition: coords
-      if $bgobj.data("type") is "logo"
-        yPos = (($window.scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px"
-        $bgobj.css top: (yPos)
-      if $bgobj.data("type") is "hat"
-        yPos = $window.height() * 0.27 - $window.scrollTop() / 2
-        yPos = 12  if yPos < 9.5
-        
-        # Put together our final background position
-        coords = yPos + "px"
-        size = ((yPos / $window.height() * 150) + 50) + "%"
-        
-        # Move the background
-        $bgobj.css top: coords
-        $bgobj.css height: size
+        # Scroll the background at var speed
+        # the yPos is a negative value because we're scrolling it UP!                
+        if $bgobj.data("type") is "background"
+          yPos = (($(this).scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200
+          if yPos < -450
+            yPos = -450
+          coords = "50% " + yPos + "px"
+          $bgobj.css backgroundPosition: coords
+        if $bgobj.data("type") is "logo"
+          yPos = (($(this).scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px"
+          $bgobj.css top: (yPos)
+        if $bgobj.data("type") is "hat"
+          yPos = $(window).height() * 0.27 - $(this).scrollTop() / 2
+          if yPos < 9.5
+            yPos = 12
+          
+          # Put together our final background position
+          coords = yPos + "px"
+          size = ((yPos / $(this).height() * 150) + 50) + "%"
+          
+          # Move the background
+          $bgobj.css top: coords
+          $bgobj.css height: size
 
-
+  if not showAnimation and $window.width() < 650
+    $(".service-container").draggable(axis: "x" , containment: [ -650+$window.width(), 0, 0, 250 ])
 
 # window scroll Ends
 

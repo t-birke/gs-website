@@ -39,10 +39,14 @@ $container-style: magic
 
 html
   height: 100%
+  width: 100%
+
+.info-site
+  min-width: 960px
 
 body
-  min-width: 960px
   height: 100%
+  width: 100%
   margin: 0
   font: 16px/24px "Open Sans", "Helvetica Neue", sans-serif
   background: white
@@ -106,6 +110,8 @@ header
     width: 960px
     text-align: center
     margin: auto
+    @media only screen and (max-width: 960px)
+      width: 100%
 
   .logo-hat
     position: absolute
@@ -115,16 +121,28 @@ header
     height: 100%
     background: url('../images/logo_1.png') no-repeat center center
     background-size: contain
+    @media only screen and (max-width: 959px)
+      display: none
 
   a
     +border-radius(5px)
-    margin: 0 2em
+    display: inline-block
+    float: left
+    height: 20px
+    margin: 12px 2em
+    line-height: 20px
     padding: .5em
     font-family: 'Novecentosanswide'
     font-weight: 400
     font-size: .85em
     border: 1px solid transparent
     text-transform: lowercase
+    @media only screen and (max-width: 960px)
+      margin: 12px 1em
+
+    &.no-mobile
+      @media only screen and (max-width: 767px)
+        display: none
 
     &:hover
       border-color: $gs-yellow
@@ -151,13 +169,64 @@ header
   a:active
     color: $text-color
 
+  .mobile-menu
+    position: relative
+    overflow: hidden
+    width: 160px
+    height: 3em
+    margin: .5em auto
+    list-style-type: none
+    text-align: center
+    padding: 0
+    @media only screen and (min-width: 768px)
+      display: none
+
+
+    li
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: 12px
+      color: $bg-grey
+      height: 4em
+      line-height: 4em
+      border: 1px solid #ddd
+      border-top: none
+      background-color: white
+
+    .first
+      border-left: none
+      border-right: none
+  
+      &:after
+        content: "\25BC"
+        position: absolute
+        top: .3em
+        right: 7em
+        font-size: .6em
+        color: $gs-yellow
+      
+      &:hover
+        cursor: pointer
+
+    .mobile
+      float: none
+      font-size: 1.2em
+      margin: 0
+
+      &:hover
+        cursor: pointer
+
+    &.show
+      height: 22em
+      +transition(all 0.5s ease)
 
   .push
-    margin-right: 11em
+    float: right
 
 h1
   font-size: 2.8em
   color: white
+  line-height: 1.3em
 
 h3
   font-size: 1em
@@ -171,7 +240,7 @@ h3
   position: relative
   font-size: 0.94em
   margin: 4em auto
-  width: 26em
+  max-width: 26em
   color: white
   text-align: center
 
@@ -308,26 +377,40 @@ h3
 .text-anchor
   font-size: 0
 
+section
+  position: relative
+  overflow: hidden
+
+section[data-type='background']
+  @media only screen and (max-width: 767px)
+    font-size: 66%
+
 .service-menu
-  height: 44em
   width: 100%
   background-color: white
   text-align: center
 
   .service-menu-background
-    height: 15em
     width: 100%
     background-color: $bg-grey
 
   .service-menu-container
     position: relative
-    width: 960px
+    width: 100%
     margin: 0 auto
+    @media only screen and (max-width: 767px)
+      width: 320px
+      font-size: 75%
 
   .service-container
     vertical-align: top
     width: 960px
+    height: 28em
     margin: auto
+    @media only screen and (max-width: 960px) and (min-width: 768px)
+      width: 768px
+    @media only screen and (max-width: 767px)
+      margin-left: 1em
 
   a:visited, 
   a:link, 
@@ -339,12 +422,14 @@ h3
     display: inline-block
     position: relative
     width: 6.5em
-    margin: 5.5em 5.5em 0 5.5em
+    margin: 8% 4%
     font-family: 'Novecentosanswide'
     font-weight: 400
     font-size: 1em
     color: white
     text-transform: uppercase
+    @media only screen and (min-width: 768px)
+      margin: 5% 4%
 
     &:hover
       cursor: pointer
@@ -362,22 +447,24 @@ h3
 
   .arrow
     position: absolute
-    top: 13.5em
+    top: 92%
     left: 105px
     height: 0em
     width: 0em
     border-left: 6em solid transparent
     border-right: 6em solid transparent
-    border-bottom: 1.5em solid white
+    border-bottom: 2em solid white
 
 .info-box
   float: left
   width: 18.75em
   height: 23.875em
   border: 1px solid #bababa
-  margin: 2em 0.6em
+  margin: 2em 0.5em
+  @media only screen and (max-width: 960px) and (min-width: 768px)
+    font-size: 79%
 
-  &:first-child
+  &.first
     margin-left: 0
 
   &.last
@@ -393,11 +480,14 @@ h3
     text-align: center
     line-height: 1.5em
 
+  img
+    width: 100%
+
 //logo section
 .logo-section
   position: relative
   height: 100%
-  min-width: 960px
+  width: 100%
   background: url('../images/bg_head.jpg') no-repeat bottom center
   background-size: cover
   overflow: hidden
@@ -408,7 +498,7 @@ h3
     left: 10%
     width: 80%
     height: 85%
-    min-width: 960px
+    width: 100%
     margin: auto
 
   .logo-left
@@ -420,6 +510,8 @@ h3
     background: url('../images/guy_left.png') no-repeat bottom center
     background-size: contain
     z-index: 3
+    @media only screen and (max-width: 767px)
+      background: none
 
   .logo-right
     position: absolute
@@ -430,13 +522,31 @@ h3
     background: url('../images/guy_right.png') no-repeat bottom center
     background-size: contain
     z-index: 2
+    @media only screen and (max-width: 767px)
+      background: none
+
+  .logo-hat
+    display: none
+    position: absolute
+    top: -15%
+    left: 45%
+    height: 15%
+    width: 15%
+    background: url('../images/logo_1.png') no-repeat center center
+    background-size: contain
+    @media only screen and (max-width: 959px)
+      display: block
 
   .logo-center
     position: absolute
     top: 27%
-    left: 33%
-    width: 33%
+    left: 34%
+    width: 32%
     height: 100%
+    @media only screen and (max-width: 767px)
+      top: 15%
+      width: 80%
+      left: 10%
 
   .logo-logo
     background: url('../images/logo_2.png') no-repeat top center
@@ -453,6 +563,8 @@ h3
     height: 40%
     text-align: center
     padding: 10% 50% 0 50%
+    @media only screen and (max-width: 767px)
+      margin-top: 2%
 
     img
       display: inline-block
@@ -469,10 +581,9 @@ h3
 
 .stil-section
   position: relative
-  height: 80em
   background: url('../images/stil_header.jpg') no-repeat center -450px
   overflow: hidden
-  z-index: -2
+  z-index: -1
 
   .stil-info-box
     position: relative
@@ -481,9 +592,25 @@ h3
     height: 15.5em
     border: 1px solid #bababa
     background-color: white
+    @media only screen and (min-width: 768px) and (max-width: 960px)
+      font-size: 79%
+    @media only screen and (max-width: 767px)
+      width: 28em
+      height: 38em
 
     &.first
       margin-top: 5em
+
+    &.last
+      margin-bottom: 2em
+
+    .stil-info-box-container
+      width: 100%
+      height: 100%
+      overflow: hidden
+
+    img
+      width: 100%
 
     .number
       +border-radius(50%)
@@ -500,6 +627,8 @@ h3
       font-weight: 400
       line-height: 1.5em
       text-align: center
+      @media only screen and (max-width: 767px)
+        left: 43%
 
     h2
       text-align: left
@@ -534,12 +663,20 @@ h3
       height: 14.25em
       margin-left: 2em
       padding: 1.25em 0 0 1.25em
+      @media only screen and (max-width: 767px)
+        float: none
+        margin: 2em auto 0 auto
+        padding: 0
 
     .text-container
       float: left
       width: 34em
       margin: 2em 0 0 2em
       height: 100%
+      @media only screen and (max-width: 767px)
+        margin-top: 0
+        width: 19em
+        font-size: 125%
 
 .reference-section
   position: relative
@@ -549,7 +686,7 @@ h3
 
   .menu
     overflow: hidden
-    margin-top: 112px
+    margin-top: 76px
     height: 12em
     width: 100%
     background-color: $bg-grey
@@ -558,6 +695,8 @@ h3
     img
       display: inline-block
       margin: 2em
+      @media only screen and (max-width: 960px)
+        margin: 2em 0.5em
 
     .selectbox
       +border-radius(3px)
@@ -595,19 +734,18 @@ h3
       color: $gs-yellow
 
   .reference-content
-    margin: 3em 0
+    margin: 7em 0 3em 0
     text-align: center
-
-    .left
-      margin-left: 0 !important
-
-    .right
-      margin-right: 0 !important
+    @media only screen and (max-width: 767px)
+      margin: 22em 0 4em 0
 
     .reference-link-container
       display: inline-block
       position: relative
       margin: .5em 1em
+      height: 18.75em
+      @media only screen and (max-width: 767px)
+        width: 300px
 
       &:hover
         cursor: pointer
@@ -616,16 +754,19 @@ h3
         .reference-link-hover-content
           display: block
 
+      img
+        width: 100%
+
       .reference-link-hover
         display: none
         position: absolute
-        top: 0
+        top: 15em
         right: 0
         bottom: 6px
         left: 0
-        padding: 20px
-        background-color: rgba(48,48,48,0.9)
-        color: white
+        background-color: white
+        border: 1px solid #bababa
+        border-top: none
 
       .reference-link-hover-content
         display: none
@@ -634,45 +775,64 @@ h3
         right: 0
         bottom: 6px
         left: 0
-        padding: 50px 12px 12px 12px
-        color: white
+        color: black
+        padding-top: 14.9em        
 
-        &.tiny
-          padding: 24px 12px 12px 12px 
-
-    .ref-heading
-      position: relative
+    .reference-title
+      position: absolute
+      top: 19.8em
+      right: 0
+      bottom: 6px
+      left: 0
+      background-color: white
       font-size: 1.875em
       margin: 0
-      padding: 0 20px
+      padding: 1.66em
       line-height: 1.1em
       text-transform: uppercase
-
-      &:after
-        content: ""
-        position: absolute
-        bottom: -20px
-        left: 33%
-        width: 33%
-        height: 1px
-        background-color: white
-
-    p
       font-size: .75em
-      text-align: center
-      color: white
-      margin-top: 30px
-      padding: 0 20px
-
-    .show-link
-      margin-top: .5em
+      border: 1px solid #bababa
+      border-top: none
       font-family: "Novecentosanswide"
       font-weight: 600
-      font-size: 1em
-      line-height: 2em
+      text-align: left
+
+      .ico
+        display: inline-block
+        float: right
+        font-size: 1.6em
+        padding: .08em .72em
+
+    p
+      float: left
+      font-size: .75em
+      text-align: left
+      width: 75%
+      color: black
+      padding: 7px 0 0 5%
+      margin: 0
+      line-height: 1.6em
+
+    .show-link
+      float: left
+      margin-top: .5em
+      width: 20%
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: 1.5em
+      line-height: 1.3em
 
       .ico
         font-size: .8em
+
+    .show-link-soon
+      float: left
+      margin-top: 1.9em
+      width: 20%
+      font-family: "Novecentosanswide"
+      font-weight: 600
+      font-size: .6em
+      line-height: 1.3em
 
     a
       position: relative
@@ -680,7 +840,6 @@ h3
 
 .studio-section
   position: relative
-  height: 69em
   background: url('../images/studio_header.jpg') no-repeat center -450px
   overflow: hidden
   z-index: -2
@@ -688,7 +847,7 @@ h3
   .menu
     position: relative
     overflow: visible
-    margin-top: 112px
+    margin-top: 79px
     height: 12em
     width: 100%
     background-color: $bg-grey
@@ -698,6 +857,10 @@ h3
       position: relative
       width: 960px
       margin: auto
+      @media only screen and (max-width: 960px)
+        width: 768px
+      @media only screen and (max-width: 767px)
+        width: 320px
 
       &:before
         content: "\e610"
@@ -732,13 +895,14 @@ h3
 
     .quote-text-box
       float: left
-      width: 35em
+      width: 55.33%
       margin: 3em 0 0 -4em
 
     .quote-text
       font-size: .8em
       color: white
       text-align: left
+      line-height: 1.4em
 
     h3
       font-size: .8em
@@ -751,6 +915,10 @@ h3
     margin: auto
     text-align: center
     padding-top: 2em
+    @media only screen and (max-width: 960px)
+      width: 768px
+    @media only screen and (max-width: 767px)
+      width: 320px
 
     .features-box
       position: relative
@@ -792,6 +960,10 @@ h3
     margin: auto
     text-align: center
     padding-top: 3em
+    @media only screen and (max-width: 960px)
+      width: 768px
+    @media only screen and (max-width: 767px)
+      width: 320px
 
     .social-box
       position: relative
@@ -800,6 +972,11 @@ h3
       height: 3.5em
       margin: .5em
       border: 1px solid #bababa
+      @media only screen and (min-width:768px) and (max-width: 960px)
+        font-size: 79%
+
+      &.bottom
+        margin-bottom: 3em
 
     .ico
       position: absolute
@@ -816,26 +993,25 @@ h3
 
 .contact-menu-section
   position: relative
-  height: 40em
   background: url('../images/header.jpg') no-repeat center -450px
   overflow: hidden
   z-index: -2
 
   .menu
     overflow: hidden
-    margin-top: 112px
-    height: 12em
+    margin-top: 75px
+    padding-bottom: 3em
     width: 100%
     background-color: $bg-grey
     text-align: center
 
     form
-      margin-top: 70px
+      margin-top: 4.375em
 
     input
-      width: 360px
-      height: 16px
-      padding: 16px 0 16px 35px
+      width: 30em
+      height: 1.45em
+      padding: 1.25em 0 1.25em 2.7em
       line-height: normal !important
       font-size: 12px
       font-family: 'Novecentosanswide'
@@ -845,32 +1021,51 @@ h3
       outline: none
       border: 1px solid #9d9d9d
       background-color: $bg-grey
+      @media only screen and (max-width: 767px)
+        width: 80%
+        max-width: 40em
 
     p
       color: white
       font-size: .7em
+      width: 80%
+      margin: 2em auto 0 auto
+      line-height: 1.4em
+      @media only screen and (max-width: 767px)
+        font-size: 1em
 
     .button-wrapper
       display: inline-block
       margin-left: -5px
+      @media only screen and (max-width: 767px)
+        display: block
+        margin-top: 2em
 
       .button
         +border-radius(0 5px 5px 0)
+        @media only screen and (max-width: 767px)
+          +border-radius(5px)
 
 .contact-section
-  height: 32em
   .contact-content
     width: 666px
     margin: auto
     padding-top: 5em
+    padding-bottom: 2em
+    @media only screen and (max-width: 767px)
+      width: 270px
+      padding: 1.5em
 
     .contact-images
       float: left
       width: 12em
       text-align: center
+      @media only screen and (max-width: 767px)
+        float: none
+        margin: auto
 
     .contact-social
-      margin-top: 3em
+      margin-top: 1em
 
       a
         display: inline-block
@@ -895,12 +1090,17 @@ h3
     .contact-text
       float: left
       width: 29em
+      @media only screen and (max-width: 767px)
+        width: 100%
+        text-align: center
 
       h2
         font-size: 1.25em
         color: $text-color
         text-align: left
         margin: 0
+        @media only screen and (max-width: 767px)
+          text-align: center
 
       .name
         font-size: .94em
@@ -922,6 +1122,9 @@ h3
           width: 24em
           height: 1px
           background-color: $gs-yellow
+          @media only screen and (max-width: 767px)
+            width: 18em
+            left: 2em
 
         &:before
           content: ""
@@ -931,12 +1134,17 @@ h3
           width: 24em
           height: 1px
           background-color: $gs-yellow
+          @media only screen and (max-width: 767px)
+            width: 18em
+            left: 2em
 
     .contact-rest
       clear: both
       margin-top: 24em
       text-align: center
       font-size: .7em
+      @media only screen and (max-width: 767px)
+        margin-top: 30em
 
       .button
         display: inline-block
@@ -953,12 +1161,19 @@ footer
     width: 42%
     height: 300px
     background-color: #2f2f2f
+    @media only screen and (max-width: 767px)
+      float: none
+      width: 100%
 
     .refer-container
       float: right
       width: 17.5em
       margin: 1em 1em 0 0
       overflow: hidden
+      @media only screen and (max-width: 767px)
+        float: none
+        margin: 1em auto
+        text-align: center
 
       .refer-heading
         position: relative
@@ -992,6 +1207,8 @@ footer
         line-height: 1.5em
         font-size: .7em
         text-align: left
+        @media only screen and (max-width: 767px)
+          text-align: center
 
       .refer-social
         position: relative
@@ -999,6 +1216,8 @@ footer
         margin-top: 1.5em
         color: white
         text-align: left
+        @media only screen and (max-width: 767px)
+          text-align: center
 
         &:before
           content: ""
@@ -1009,6 +1228,8 @@ footer
           font-size: 1em
           height: 1px
           background-color: $text-color
+          @media only screen and (max-width: 767px)
+            left: 4.8em
 
       .social
         display: inline-block
@@ -1026,6 +1247,8 @@ footer
     width: 58%
     height: 300px
     background-color: #353535
+    @media only screen and (max-width: 767px)
+      display: none
 
     h2
       font-size: 1.3em
@@ -1073,15 +1296,31 @@ footer
     float: left
     width: 42%
     height: 300px
+    @media only screen and (max-width: 767px)
+      float: none
+      width: 100%
+      height: 150px
 
     #map-canvas
       height: 300px
+      @media only screen and (max-width: 767px)
+        height: 150px
 
   .contact
     float: left
     width: 58%
     height: 300px
     background-color: #3b3b3b
+    @media only screen and (max-width: 767px)
+      float: none
+      width: 100%
+      margin-top: -31px
+      padding-top: 2em
+
+    .contact-container
+      width: 16em
+      @media only screen and (max-width: 767px)
+        margin: auto
 
     h2
       font-size: 1.3em
@@ -1089,12 +1328,17 @@ footer
       text-align: left
       margin: 1.5em 0 0 3.1em
       line-height: 1.5em
+      @media only screen and (max-width: 767px)
+        font-size: 1em
+        margin: 1.5em
 
     .address
       margin-left: 5.33em
       font-size: .75em
       color: white
       line-height: 1.6em
+      @media only screen and (max-width: 767px)
+        margin-left: 2em
 
       a,
       a:visited,
@@ -1107,6 +1351,8 @@ footer
       margin: 4em 0 0 5.33em
       font-size: .75em
       color: white
+      @media only screen and (max-width: 767px)
+        margin-left: 2em
 
       a,
       a:visited,
@@ -1117,9 +1363,10 @@ footer
         text-decoration: underline
 
 // other sites stiles
-.other
+.other  
   .content
     width: 960px
+    padding: 0 1em
     margin: auto
     overflow: hidden
 
@@ -1202,14 +1449,17 @@ footer
       margin: 2em 0
       font-size: 1.25em
       text-align: left
+      padding: 0 1em
 
     p
       font-size: .75em
       color: $bg-grey
+      padding: 0 1em
 
     .link-container
       float: left
       margin-top: 3em
+      padding: 0 1em
 
 .jobs
 
