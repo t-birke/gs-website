@@ -244,7 +244,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.{gif,webp}',
             'scripts/vendor/**/*',
             'styles/fonts/*',
-            'popups/*'
+            'popups/**/*'
           ]
         }]
       }
