@@ -239,6 +239,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
+            'share.png',
             'components/**/*',
             'images/{,*/}*.{gif,webp}',
             'scripts/vendor/**/*',
