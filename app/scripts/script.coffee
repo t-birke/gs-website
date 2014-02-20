@@ -179,7 +179,27 @@ $(document).ready ->
   prev.click ->
     Backward()
 
-  
+  # Mailchimp form
+
+  $('#mc-embedded-subscribe-form').submit (evt) ->
+    evt.preventDefault()
+    $form = $(this)
+    $input = $form.find('#mce-EMAIL').removeClass('error')
+    $.ajax
+      type: $form.attr 'method'
+      url: $form.attr 'action'
+      data: $form.serialize()
+      cache: false
+      dataType: 'jsonp'
+      jsonp: 'c'
+      contentType: "application/json; charset=utf-8",
+      error: (err) -> alert("Could not connect to the registration server. Please try again later.")
+      success: (data) ->
+        if data.result is 'error'
+          $input.addClass('error')
+        else
+          $form.html('<h3>Danke, wir melden uns bei Ihnen.</h3>')
+
   #Parallax Effect
   t = $("a[name='stil']").offset().top
   if showAnimation
