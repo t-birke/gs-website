@@ -39,7 +39,8 @@ $(document).ready ->
       showAnimation = true
 
   # Position hat
-  $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px"
+  if $window.scrollTop() == 0
+    $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px"
   # Position Arrow
   offsetArrow = 40
   if $window.width() < 768
@@ -59,7 +60,7 @@ $(document).ready ->
     window.scrollTo 0, scrollPosition
 
   $(".reference-link-hover-content").not("[data-popup=none]").click ->
-    console.log "click"
+    #console.log "click"
     showPopup $(this).data("popup"), $(this).data("color")
     popupBackground.removeClass "hidden"
 
@@ -200,37 +201,43 @@ $(document).ready ->
         else
           $form.html('<h3>Danke, wir melden uns bei Ihnen.</h3>')
 
+
+
   #Parallax Effect
+
+  compu = ($bgobj) ->
+    if $bgobj.data("type") is "background"
+      yPos = (($(this).scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200
+      if yPos < -450
+        yPos = -450
+      coords = "50% " + yPos + "px"
+      $bgobj.css backgroundPosition: coords
+    if $bgobj.data("type") is "logo"
+      yPos = (($(this).scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px"
+      $bgobj.css top: (yPos)
+    if $bgobj.data("type") is "hat"
+      yPos = $(window).height() * 0.27 - $(this).scrollTop() / 2
+      if yPos < 9.5
+        yPos = 12
+      
+      # Put together our final background position
+      coords = yPos + "px"
+      size = ((yPos / $(this).height() * 150) + 50) + "%"
+      
+      # Move the background
+      $bgobj.css top: coords
+      $bgobj.css height: size
+
   t = $("a[name='stil']").offset().top
   if showAnimation
     $("div[data-type='logo'], section[data-type='background'], div[data-type='hat']").each ->
       $bgobj = $(this) # assigning the object
-
+      compu($bgobj)
       $window.scroll ->
       
         # Scroll the background at var speed
         # the yPos is a negative value because we're scrolling it UP!                
-        if $bgobj.data("type") is "background"
-          yPos = (($(this).scrollTop() - $bgobj.offset().top) / $bgobj.data("speed")) - 200
-          if yPos < -450
-            yPos = -450
-          coords = "50% " + yPos + "px"
-          $bgobj.css backgroundPosition: coords
-        if $bgobj.data("type") is "logo"
-          yPos = (($(this).scrollTop() / $bgobj.data("speed")) + ($(window).height() * 0.15)) + "px"
-          $bgobj.css top: (yPos)
-        if $bgobj.data("type") is "hat"
-          yPos = $(window).height() * 0.27 - $(this).scrollTop() / 2
-          if yPos < 9.5
-            yPos = 12
-          
-          # Put together our final background position
-          coords = yPos + "px"
-          size = ((yPos / $(this).height() * 150) + 50) + "%"
-          
-          # Move the background
-          $bgobj.css top: coords
-          $bgobj.css height: size
+        compu($bgobj)
 
   if not showAnimation and $window.width() < 650
     $(".service-container").draggable(axis: "x" , containment: [ -650+$window.width(), 0, 0, 250 ])
