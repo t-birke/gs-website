@@ -9,8 +9,7 @@ initialize = ->
     map: map
     title: "Gentleman Studio"
   )
-map = undefined
-google.maps.event.addDomListener window, "load", initialize
+
 $(document).ready ->
   
   # Cache the Window object
@@ -24,23 +23,22 @@ $(document).ready ->
     showAnimation = true
   
   # position logo container
-  resizeLogo = ->
-    leftPos = (($window.width() - $(".logo-container").width()) / 2)
-    $(".logo-container").css("left",leftPos + "px")
+  #resizeLogo = ->
+  #  leftPos = (($window.width() - $(".logo-container").width()) / 2)
+  #  $(".logo-container").css("left",leftPos + "px")
 
-
-  resizeLogo()
+  #resizeLogo()
   # also on resize
-  $window.resize $.throttle 250, (e) ->
-    resizeLogo()
-    if $window.width() < 960
-      showAnimation = false
-    else
-      showAnimation = true
+  #$window.resize $.throttle 250, (e) ->
+  #  resizeLogo()
+  #  if $window.width() < 960
+  #    showAnimation = false
+  #  else
+  #    showAnimation = true
 
   # Position hat
-  if $window.scrollTop() == 0
-    $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px"
+  #if $window.scrollTop() == 0
+  #  $("div[data-type='hat']").css top: ($window.height() * 0.27) + "px", opacity: 1
   # Position Arrow
   offsetArrow = 40
   if $window.width() < 768
@@ -49,18 +47,20 @@ $(document).ready ->
   # Reference popup
   popupBackground = $("#popup-background")
   showPopup = (content, color) ->
-    popupBackground.load "popups/" + content + ".html"
-    popupBackground.css "background-color", color
+    popupBackground.load "popups/" + content + ".html", ->
+      popupBackground.css "background-color", color
+      popupBackground.scrollTop(0)
+      
+
     # lock scroll position, but retain settings for later
     scrollPosition = self.pageYOffset or document.documentElement.scrollTop or document.body.scrollTop
     html = jQuery("html") # it would make more sense to apply this to body, but IE7 won't have that
     html.data "scroll-position", scrollPosition
     html.data "previous-overflow", html.css("overflow")
     html.css "overflow", "hidden"
-    window.scrollTo 0, scrollPosition
+    #window.scrollTo 0, scrollPosition
 
   $(".reference-link-hover-content").not("[data-popup=none]").click ->
-    #console.log "click"
     showPopup $(this).data("popup"), $(this).data("color")
     popupBackground.removeClass "hidden"
 
@@ -74,7 +74,7 @@ $(document).ready ->
     closePopup $()
 
   closePopup = ->
-    popupBackground.addClass "hidden"
+    popupBackground.addClass("hidden").empty()
     
     # un-lock scroll position
     html = jQuery("html")
@@ -225,8 +225,7 @@ $(document).ready ->
       size = ((yPos / $(this).height() * 150) + 50) + "%"
       
       # Move the background
-      $bgobj.css top: coords
-      $bgobj.css height: size
+      $bgobj.css top: coords, height: size, opacity: 1
 
   t = $("a[name='stil']").offset().top
   if showAnimation
@@ -241,6 +240,8 @@ $(document).ready ->
 
   if not showAnimation and $window.width() < 650
     $(".service-container").draggable(axis: "x" , containment: [ -650+$window.width(), 0, 0, 250 ])
+
+  initialize()
 
 # window scroll Ends
 
